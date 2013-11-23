@@ -222,3 +222,4 @@ databases/
 sql.log
 storage.sqlite
 sessions/
+errors/
