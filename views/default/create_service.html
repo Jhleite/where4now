@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+[ {{=A('Show all operators', _href=URL('index'))}} ]
+[ {{=A('Show this operator', _href=URL('show_operator', args=operator.id))}} ]<br />
+<h1>Create a new service for {{=operator.name}}</h1>
+{{=form}}

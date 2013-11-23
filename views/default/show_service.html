@@ -1,0 +1,54 @@
+{{extend 'layout.html'}}
+[ {{=A('Show all operators', _href=URL('index'))}} ]
+[ {{=A('Show this operator', _href=URL('show_operator', args=service.operator_id))}} ]<br />
+<h1>{{=service.name}}</h1>
+{{for photo in photos:}}
+	<img width="100px" height="200px" src="{{=URL('download_photo', args=photo.file)}}" />
+{{pass}}<br />
+[ {{=A('Upload photo', _href=URL('upload_photo', args=service.id))}} ]<br />
+<br />
+<a>Service code :      </a>{{=service.code}}<br />
+<a>Selling price :     </a>{{=service.selling_price}}<br />
+<a>Operator price :    </a>{{=service.operator_price}}<br />
+<a>Commission :        </a>{{=service.comission}}<br />
+
+
+
+<a>Mean rating :       </a>{{=service.mean_rating}}<br />
+<a>GPS coordinates :   </a>{{=service.mean_rating}}<br />
+<a>Segments : </a>
+{{for segment in service.tourism_segments:}}
+	{{=segment}}
+{{pass}}<br />
+<a>Region : 		   </a>{{=service.region}}<br />
+<br />
+
+<a>Opening time :      </a>{{=service.opening_time}}<br />
+<a>Closing time :      </a>{{=service.closing_time}}<br />
+<a>Service duration :  </a>{{=service.duration}}<br />
+
+{{if extensions:}}
+	{{for extension in extensions:}}
+		{{=H3(extension.name)}}
+		<a>Selling price :   </a>{{=extension.selling_price}}<br />
+		<a>Operator price :  </a>{{=extension.operator_price}}<br />
+		<a>Commission :      </a>{{=extension.comission}}<br />
+	{{pass}}
+{{else:}}
+	<h3>No extensions available</h3>
+{{pass}}<br />
+
+[ {{=A('Create service extension', _href=URL('create_service_extension', args=service.id))}} ]<br />
+
+{{if comments:}}
+	<h3>Comments for this service</h3>
+	{{for comment in comments:}}
+		<a>Rating :   </a>{{=comment.rating}}<br />
+		<a>Comment :  </a>{{=comment.comment}}<br />
+	{{pass}}<br />
+	<a>Insert a comment</a>
+{{else:}}
+	<h3>No comments for this service</h3>
+	<a>Be the first to comment</a>
+{{pass}}
+{{=form}}

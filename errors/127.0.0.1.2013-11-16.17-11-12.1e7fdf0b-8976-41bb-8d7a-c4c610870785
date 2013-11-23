@@ -1,0 +1,381 @@
+(dp1
+S'output'
+p2
+S"<class 'sqlite3.IntegrityError'> column nib is not unique"
+p3
+sS'layer'
+p4
+S'C:\\web2py\\applications\\where4now\\controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is the main controller\n## - index is the default action of any application\n#########################################################################\n\ndef index():\n    """\n    This action lists all the tourism operators that exist in the database.\n    It orders them by operator name.\n    """\n    operators = db().select(db.operator.id, db.operator.name, orderby=db.operator.name)\n    return dict(operators=operators)\n    \ndef create_operator():\n    """\n    This action creates an tourism operator in the database.\n    It creates a form with the fields corresponding to a table row.\n    """\n    form = SQLFORM(db.operator).process(next=URL(\'index\'))\n    return dict(form=form)\n    \ndef show_operator():\n    """\n    This action shows a tourism operator.\n    """\n    this_operator = db.operator(request.args(0,cast=int)) or redirect(URL(index))\n    return dict(operator=this_operator)\n\nresponse._vars=response._caller(create_operator)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__module__'
+p12
+S"'sqlite3'"
+p13
+sS'__getslice__'
+p14
+S"<method-wrapper '__getslice__' of IntegrityError object>"
+p15
+sS'__str__'
+p16
+S"<method-wrapper '__str__' of IntegrityError object>"
+p17
+sS'__reduce__'
+p18
+S'<built-in method __reduce__ of IntegrityError object>'
+p19
+sS'__dict__'
+p20
+S'{}'
+p21
+sS'__sizeof__'
+p22
+S'<built-in method __sizeof__ of IntegrityError object>'
+p23
+sS'__weakref__'
+p24
+S'None'
+p25
+sS'__init__'
+p26
+S"<method-wrapper '__init__' of IntegrityError object>"
+p27
+sS'__setattr__'
+p28
+S"<method-wrapper '__setattr__' of IntegrityError object>"
+p29
+sS'__reduce_ex__'
+p30
+S'<built-in method __reduce_ex__ of IntegrityError object>'
+p31
+sS'__new__'
+p32
+S'<built-in method __new__ of type object>'
+p33
+sS'__format__'
+p34
+S'<built-in method __format__ of IntegrityError object>'
+p35
+sS'__class__'
+p36
+S"<class 'sqlite3.IntegrityError'>"
+p37
+sS'__doc__'
+p38
+S'None'
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of IntegrityError object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of IntegrityError object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of IntegrityError object>"
+p45
+sS'args'
+p46
+S"('column nib is not unique',)"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of IntegrityError object>'
+p51
+sS'__delattr__'
+p52
+S"<method-wrapper '__delattr__' of IntegrityError object>"
+p53
+sS'__repr__'
+p54
+S"<method-wrapper '__repr__' of IntegrityError object>"
+p55
+sS'__hash__'
+p56
+S"<method-wrapper '__hash__' of IntegrityError object>"
+p57
+ssS'evalue'
+p58
+S'column nib is not unique'
+p59
+sS'request'
+p60
+cgluon.html
+XML_unpickle
+p61
+(S's\x10l\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top">ajax</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">application</td><td valign="top">:</td><td><div>where4now</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">args</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">body</td><td valign="top">:</td><td><div>&lt;open file &#x27;&lt;fdopen&gt;&#x27;, mode &#x27;w+b&#x27; at 0x07B888B8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cid</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">client</td><td valign="top">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">controller</td><td valign="top">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cookies</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">mstmode</td><td valign="top">:</td><td><div>manual<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_admin</td><td valign="top">:</td><td><div>127.0.0.1-b23c7abb-46ad-4e3b-9b33-da00ae701e31<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_welcome</td><td valign="top">:</td><td><div>127.0.0.1-a81f557e-da04-444d-8d7e-fdbb9d9b1533<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_where4now</td><td valign="top">:</td><td><div>127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">env</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">app_folders</td><td valign="top">:</td><td><div>set([&#x27;C:\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\web2py\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\web2py\\\\applications\\\\where4now\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">applications_parent</td><td valign="top">:</td><td><div>C:\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_args</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_options</td><td valign="top">:</td><td><div>&lt;Values at 0x208e6c0: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;89.214.42.166&#x27;, &#x27;2002:59d6:2aa6::59d6:2aa6&#x27;, &#x27;fe80::1024:6da:a629:d559%66&#x27;, &#x27;2001:0:9d38:90d7:1024:6da:a629:d559&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Hugo-TOSH&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;import_models&#x27;: False, &#x27;winservice&#x27;: &#x27;&#x27;, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;profiler_filename&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;interfaces&#x27;: None, &#x27;minthreads&#x27;: None, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">content_length</td><td valign="top">:</td><td><div>1631</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">content_type</td><td valign="top">:</td><td><div>multipart/form-data; boundary=---------------------------7dd3a0ce096c</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">db_sessions</td><td valign="top">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">debugging</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">gluon_parent</td><td valign="top">:</td><td><div>C:\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_accept</td><td valign="top">:</td><td><div>text/html, application/xhtml+xml, */*</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_accept_encoding</td><td valign="top">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_accept_language</td><td valign="top">:</td><td><div>pt-PT</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_cache_control</td><td valign="top">:</td><td><div>no-cache</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_connection</td><td valign="top">:</td><td><div>Keep-Alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_content_length</td><td valign="top">:</td><td><div>1631</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_content_type</td><td valign="top">:</td><td><div>multipart/form-data; boundary=---------------------------7dd3a0ce096c</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_cookie</td><td valign="top">:</td><td><div>mstmode=manual; session_id_welcome=127.0.0.1-a81f557e-da04-444d-8d7e-fdbb9d9b1533; session_id_admin=127.0.0.1-b23c7abb-46ad-4e3b-9b33-da00ae701e31; session_id_where4now=127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_host</td><td valign="top">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_referer</td><td valign="top">:</td><td><div>http://127.0.0.1:8000/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">http_user_agent</td><td valign="top">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; MATM; rv:11.0) like Gecko</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_jython</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_pypy</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">local_hosts</td><td valign="top">:</td><td><div><table><tr><td><div>2001:0:9d38:90d7:1024:6da:a629:d559</div></td></tr><tr><td><div>2002:59d6:2aa6::59d6:2aa6</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>fe80::1024:6da:a629:d559%66</div></td></tr><tr><td><div>89.214.42.166</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>Hugo-TOSH</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path_info</td><td valign="top">:</td><td><div>/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">query_string</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">remote_addr</td><td valign="top">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">remote_port</td><td valign="top">:</td><td><div>50833</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">request_method</td><td valign="top">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">request_uri</td><td valign="top">:</td><td><div>/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">script_name</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_name</td><td valign="top">:</td><td><div>Hugo-TOSH</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_port</td><td valign="top">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_protocol</td><td valign="top">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">server_software</td><td valign="top">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">web2py_path</td><td valign="top">:</td><td><div>C:\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">web2py_version</td><td valign="top">:</td><td><div>2.5.1-stable+timestamp.2013.06.06.15.39.19</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_errors</td><td valign="top">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x002750D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_file_wrapper</td><td valign="top">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x02BF0EA0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_input</td><td valign="top">:</td><td><div>&lt;socket._fileobject object at 0x07B85870&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_multiprocess</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_multithread</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_run_once</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_url_scheme</td><td valign="top">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi_version</td><td valign="top">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">extension</td><td valign="top">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">folder</td><td valign="top">:</td><td><div>C:\\web2py\\applications\\where4now\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">function</td><td valign="top">:</td><td><div>create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">get_vars</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">global_settings</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">app_folders</td><td valign="top">:</td><td><div>set([&#x27;C:\\\\web2py\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\web2py\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\web2py\\\\applications\\\\where4now\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">applications_parent</td><td valign="top">:</td><td><div>C:\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_args</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cmd_options</td><td valign="top">:</td><td><div>&lt;Values at 0x208e6c0: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;89.214.42.166&#x27;, &#x27;2002:59d6:2aa6::59d6:2aa6&#x27;, &#x27;fe80::1024:6da:a629:d559%66&#x27;, &#x27;2001:0:9d38:90d7:1024:6da:a629:d559&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;Hugo-TOSH&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\web2py&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;import_models&#x27;: False, &#x27;winservice&#x27;: &#x27;&#x27;, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;profiler_filename&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;interfaces&#x27;: None, &#x27;minthreads&#x27;: None, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">db_sessions</td><td valign="top">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">debugging</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">gluon_parent</td><td valign="top">:</td><td><div>C:\\web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_jython</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_pypy</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">local_hosts</td><td valign="top">:</td><td><div><table><tr><td><div>2001:0:9d38:90d7:1024:6da:a629:d559</div></td></tr><tr><td><div>2002:59d6:2aa6::59d6:2aa6</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>fe80::1024:6da:a629:d559%66</div></td></tr><tr><td><div>89.214.42.166</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>Hugo-TOSH</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">web2py_version</td><td valign="top">:</td><td><div>2.5.1-stable+timestamp.2013.06.06.15.39.19</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_https</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_local</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">is_restful</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">now</td><td valign="top">:</td><td><div>datetime.datetime(2013, 11, 16, 17, 11, 12, 933000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">post_vars</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">address</td><td valign="top">:</td><td><div>qwertyuiop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">code</td><td valign="top">:</td><td><div>1234</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">country</td><td valign="top">:</td><td><div>Portugal</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">email</td><td valign="top">:</td><td><div>operator2@teste.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">gpscoord</td><td valign="top">:</td><td><div>12345</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">name</td><td valign="top">:</td><td><div>Operator 2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">nib</td><td valign="top">:</td><td><div>1234</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">nif</td><td valign="top">:</td><td><div>1234</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">postal_code</td><td valign="top">:</td><td><div>1234567</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">regions</td><td valign="top">:</td><td><div>Algarve</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">tourism_segments</td><td valign="top">:</td><td><div>Sun and Sea</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">town</td><td valign="top">:</td><td><div>Lisboa</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">website</td><td valign="top">:</td><td><div>www.operator2.com</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">raw_args</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">raw_extension</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">url</td><td valign="top">:</td><td><div>/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">utcnow</td><td valign="top">:</td><td><div>datetime.datetime(2013, 11, 16, 17, 11, 12, 933000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">uuid</td><td valign="top">:</td><td><div>where4now/127.0.0.1.2013-11-16.17-11-12.1e7fdf0b-8976-41bb-8d7a-c4c610870785</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">vars</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">address</td><td valign="top">:</td><td><div>qwertyuiop</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">code</td><td valign="top">:</td><td><div>1234</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">country</td><td valign="top">:</td><td><div>Portugal</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">email</td><td valign="top">:</td><td><div>operator2@teste.com</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">gpscoord</td><td valign="top">:</td><td><div>12345</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">name</td><td valign="top">:</td><td><div>Operator 2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">nib</td><td valign="top">:</td><td><div>1234</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">nif</td><td valign="top">:</td><td><div>1234</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">postal_code</td><td valign="top">:</td><td><div>1234567</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">regions</td><td valign="top">:</td><td><div>Algarve</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">tourism_segments</td><td valign="top">:</td><td><div>Sun and Sea</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">town</td><td valign="top">:</td><td><div>Lisboa</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">website</td><td valign="top">:</td><td><div>www.operator2.com</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">environ</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">CONTENT_LENGTH</td><td valign="top">:</td><td><div>1631</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">CONTENT_TYPE</td><td valign="top">:</td><td><div>multipart/form-data; boundary=---------------------------7dd3a0ce096c</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_ACCEPT</td><td valign="top">:</td><td><div>text/html, application/xhtml+xml, */*</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_ACCEPT_ENCODING</td><td valign="top">:</td><td><div>gzip, deflate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_ACCEPT_LANGUAGE</td><td valign="top">:</td><td><div>pt-PT</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_CACHE_CONTROL</td><td valign="top">:</td><td><div>no-cache</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_CONNECTION</td><td valign="top">:</td><td><div>Keep-Alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_CONTENT_LENGTH</td><td valign="top">:</td><td><div>1631</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_CONTENT_TYPE</td><td valign="top">:</td><td><div>multipart/form-data; boundary=---------------------------7dd3a0ce096c</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_COOKIE</td><td valign="top">:</td><td><div>mstmode=manual; session_id_welcome=127.0.0.1-a81f557e-da04-444d-8d7e-fdbb9d9b1533; session_id_admin=127.0.0.1-b23c7abb-46ad-4e3b-9b33-da00ae701e31; session_id_where4now=127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_HOST</td><td valign="top">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_REFERER</td><td valign="top">:</td><td><div>http://127.0.0.1:8000/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">HTTP_USER_AGENT</td><td valign="top">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; MATM; rv:11.0) like Gecko</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">PATH_INFO</td><td valign="top">:</td><td><div>/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">QUERY_STRING</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REMOTE_ADDR</td><td valign="top">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REMOTE_PORT</td><td valign="top">:</td><td><div>50833</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REQUEST_METHOD</td><td valign="top">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">REQUEST_URI</td><td valign="top">:</td><td><div>/where4now/default/create_operator</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SCRIPT_NAME</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_NAME</td><td valign="top">:</td><td><div>Hugo-TOSH</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_PORT</td><td valign="top">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_PROTOCOL</td><td valign="top">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">SERVER_SOFTWARE</td><td valign="top">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.errors</td><td valign="top">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x002750D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.file_wrapper</td><td valign="top">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x02BF0EA0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.input</td><td valign="top">:</td><td><div>&lt;open file &#x27;&lt;fdopen&gt;&#x27;, mode &#x27;w+b&#x27; at 0x07B888B8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.multiprocess</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.multithread</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.run_once</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.url_scheme</td><td valign="top">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">wsgi.version</td><td valign="top">:</td><td><div>1</div></td></tr></table></div></td></tr></table></div></td></tr></table></div>'
+tRp62
+sS'frames'
+p63
+(lp64
+(dp65
+S'file'
+p66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\restricted.py'
+p67
+sS'dump'
+p68
+(dp69
+sS'lnum'
+p70
+I212
+sS'lines'
+p71
+(dp72
+sS'call'
+p73
+S"(code='# -*- coding: utf-8 -*-\\n# this file is released ...response._vars=response._caller(create_operator)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}, layer=r'C:\\web2py\\applications\\where4now\\controllers/default.py')"
+p74
+sS'func'
+p75
+S'restricted'
+p76
+sa(dp77
+g66
+S'C:\\web2py\\applications\\where4now\\controllers\\default.py'
+p78
+sg68
+(dp79
+sg70
+I32
+sg71
+(dp80
+I21
+S'    """'
+p81
+sI22
+S"    form = SQLFORM(db.operator).process(next=URL('index'))"
+p82
+sI23
+S'    return dict(form=form)'
+p83
+sI24
+S''
+sI25
+S'def show_operator():'
+p84
+sI26
+S'    """'
+p85
+sI27
+S'    This action shows a tourism operator.'
+p86
+sI28
+S'    """'
+p87
+sI29
+S'    this_operator = db.operator(request.args(0,cast=int)) or redirect(URL(index))'
+p88
+sI30
+S'    return dict(operator=this_operator)'
+p89
+ssg73
+S'()'
+p90
+sg75
+S'<module>'
+p91
+sa(dp92
+g66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\globals.py'
+p93
+sg68
+(dp94
+sg70
+I194
+sg71
+(dp95
+sg73
+S'(f=<function create_operator>)'
+p96
+sg75
+S'<lambda>'
+p97
+sa(dp98
+g66
+S'C:\\web2py\\applications\\where4now\\controllers\\default.py'
+p99
+sg68
+(dp100
+sg70
+I22
+sg71
+(dp101
+I17
+S'def create_operator():'
+p102
+sI18
+S'    """'
+p103
+sI19
+S'    This action creates an tourism operator in the database.'
+p104
+sI20
+S'    It creates a form with the fields corresponding to a table row.'
+p105
+sI21
+S'    """'
+p106
+sI22
+S"    form = SQLFORM(db.operator).process(next=URL('index'))"
+p107
+sI23
+S'    return dict(form=form)'
+p108
+sI24
+S''
+sI25
+S'def show_operator():'
+p109
+sI26
+S'    """'
+p110
+ssg73
+S'()'
+p111
+sg75
+S'create_operator'
+p112
+sa(dp113
+g66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\html.py'
+p114
+sg68
+(dp115
+sg70
+I2188
+sg71
+(dp116
+sg73
+S"(self=<gluon.sqlhtml.SQLFORM object>, **kwargs={'dbio': True, 'next': '/where4now/default/index'})"
+p117
+sg75
+S'process'
+p118
+sa(dp119
+g66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\html.py'
+p120
+sg68
+(dp121
+sg70
+I2127
+sg71
+(dp122
+sg73
+S"(self=<gluon.sqlhtml.SQLFORM object>, **kwargs={'dbio': True, 'request_vars': <Storage {'town': 'Lisboa', 'website': 'www.oper...coord': '12345', '_formname': 'operator/create'}>, 'session': <Storage {'_formkey[operator/create]': '640cba3e...'os': {'version': 'NT 6.1', 'name': 'Windows'}}}>})"
+p123
+sg75
+S'validate'
+p124
+sa(dp125
+g66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\sqlhtml.py'
+p126
+sg68
+(dp127
+sg70
+I1571
+sg71
+(dp128
+sg73
+S"(self=<gluon.sqlhtml.SQLFORM object>, request_vars=<Storage {'town': 'Lisboa', 'website': 'www.oper...coord': '12345', '_formname': 'operator/create'}>, session=<Storage {'_formkey[operator/create]': '640cba3e...'os': {'version': 'NT 6.1', 'name': 'Windows'}}}>, formname='operator/create', keepvalues=False, onvalidation=None, dbio=True, hideerror=False, detect_record_change=False, **kwargs={})"
+p129
+sg75
+S'accepts'
+p130
+sa(dp131
+g66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\dal.py'
+p132
+sg68
+(dp133
+sg70
+I8598
+sg71
+(dp134
+sg73
+S"(self=<Table operator (id,name,code,nif,nib,address,po...email,website,gpscoord,tourism_segments,regions)>, **fields={'address': 'qwertyuiop', 'code': '1234', 'country': 'Portugal', 'email': 'operator2@teste.com', 'gpscoord': '12345', 'name': 'Operator 2', 'nib': '1234', 'nif': '1234', 'postal_code': '1234567', 'regions': ['Algarve'], ...})"
+p135
+sg75
+S'insert'
+p136
+sa(dp137
+g66
+S'C:\\home\\mdipierro\\make_web2py\\web2py\\gluon\\dal.py'
+p138
+sg68
+(dp139
+sg70
+I1210
+sg71
+(dp140
+sg73
+S"(self=<gluon.dal.SQLiteAdapter object>, table=<Table operator (id,name,code,nif,nib,address,po...email,website,gpscoord,tourism_segments,regions)>, fields=[(<gluon.dal.Field object>, 'Lisboa'), (<gluon.dal.Field object>, 'www.operator2.com'), (<gluon.dal.Field object>, '1234'), (<gluon.dal.Field object>, 'Operator 2'), (<gluon.dal.Field object>, '1234'), (<gluon.dal.Field object>, 'Portugal'), (<gluon.dal.Field object>, '1234'), (<gluon.dal.Field object>, '12345'), (<gluon.dal.Field object>, ['Algarve']), (<gluon.dal.Field object>, '1234567'), (<gluon.dal.Field object>, 'qwertyuiop'), (<gluon.dal.Field object>, ['Sun and Sea']), (<gluon.dal.Field object>, 'operator2@teste.com')])"
+p141
+sg75
+g136
+sasS'pyver'
+p142
+S'Python 2.7: C:\\web2py\\web2py.exe (prefix: C:\\web2py)'
+p143
+sS'session'
+p144
+g61
+(S's\x8c\x00\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top">flash</td><td valign="top">:</td><td><div>None</div></td></tr></table></div>'
+tRp145
+sS'etype'
+p146
+S"<class 'sqlite3.IntegrityError'>"
+p147
+sS'date'
+p148
+S'Sat Nov 16 17:11:13 2013'
+p149
+sS'response'
+p150
+g61
+(S's\xa1,\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top">body</td><td valign="top">:</td><td><div>&lt;cStringIO.StringO object at 0x081F96E0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">cookies</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">session_id_where4now</td><td valign="top">:</td><td><div>127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d<table><tr><td style="font-weight:bold;vertical-align:top">comment</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">domain</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">expires</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">httponly</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">max-age</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">path</td><td valign="top">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">secure</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">version</td><td valign="top">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">delimiters</td><td valign="top">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">files</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">flash</td><td valign="top">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">generic_patterns</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">google_analytics_id</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">headers</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">X-Powered-By</td><td valign="top">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">logo</td><td valign="top">:</td><td><div><a class="brand" href="http://www.web2py.com/"><b>web<span>2</span>py</b>&trade;&nbsp;</a></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">menu</td><td valign="top">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/where4now/default/index</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div><span class="highlighted">web2py</span></div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>My Sites</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/site</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>This App</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/design/where4now</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Controller&#x27;&gt;, False, &#x27;/admin/default/edit/where4now/controllers/default.py&#x27;), (&lt;lazyT &#x27;View&#x27;&gt;, False, &#x27;/admin/default/edit/where4now/views/default/create_operator.html&#x27;), (&lt;lazyT &#x27;Layout&#x27;&gt;, False, &#x27;/admin/default/edit/where4now/views/layout.html&#x27;), (&lt;lazyT &#x27;Stylesheet&#x27;&gt;, False, &#x27;/admin/default/edit/where4now/static/css/web2py.css&#x27;), (&lt;lazyT &#x27;DB Model&#x27;&gt;, False, &#x27;/admin/default/edit/where4now/models/db.py&#x27;), (&lt;lazyT &#x27;Menu Model&#x27;&gt;, False, &#x27;/admin/default/edit/where4now/models/menu.py&#x27;), (&lt;lazyT &#x27;Database&#x27;&gt;, False, &#x27;/where4now/appadmin/index&#x27;), (&lt;lazyT &#x27;Errors&#x27;&gt;, False, &#x27;/admin/default/errors/where4now&#x27;), (&lt;lazyT &#x27;About&#x27;&gt;, False, &#x27;/admin/default/about/where4now&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>web2py.com</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Download&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/download&#x27;), (&lt;lazyT &#x27;Support&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/support&#x27;), (&lt;lazyT &#x27;Demo&#x27;&gt;, False, &#x27;http://web2py.com/demo_admin&#x27;), (&lt;lazyT &#x27;Quick Examples&#x27;&gt;, False, &#x27;http://web2py.com/examples/default/examples&#x27;), (&lt;lazyT &#x27;FAQ&#x27;&gt;, False, &#x27;http://web2py.com/AlterEgo&#x27;), (&lt;lazyT &#x27;Videos&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/videos/&#x27;), (&lt;lazyT &#x27;Free Applications&#x27;&gt;, False, &#x27;http://web2py.com/appliances&#x27;), (&lt;lazyT &#x27;Plugins&#x27;&gt;, False, &#x27;http://web2py.com/plugins&#x27;), (&lt;lazyT &#x27;Layouts&#x27;&gt;, False, &#x27;http://web2py.com/layouts&#x27;), (&lt;lazyT &#x27;Recipes&#x27;&gt;, False, &#x27;http://web2pyslices.com/&#x27;), (&lt;lazyT &#x27;Semantic&#x27;&gt;, False, &#x27;http://web2py.com/semantic&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Documentation</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Preface&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/00&#x27;), (&lt;lazyT &#x27;Introduction&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/01&#x27;), (&lt;lazyT &#x27;Python&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/02&#x27;), (&lt;lazyT &#x27;Overview&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/03&#x27;), (&lt;lazyT &#x27;The Core&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/04&#x27;), (&lt;lazyT &#x27;The Views&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/05&#x27;), (&lt;lazyT &#x27;Database&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/06&#x27;), (&lt;lazyT &#x27;Forms and Validators&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/07&#x27;), (&lt;lazyT &#x27;Email and SMS&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/08&#x27;), (&lt;lazyT &#x27;Access Control&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/09&#x27;), (&lt;lazyT &#x27;Services&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/10&#x27;), (&lt;lazyT &#x27;Ajax Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/11&#x27;), (&lt;lazyT &#x27;Components and Plugins&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/12&#x27;), (&lt;lazyT &#x27;Deployment Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/13&#x27;), (&lt;lazyT &#x27;Other Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/14&#x27;), (&lt;lazyT &#x27;Buy this book&#x27;&gt;, False, &#x27;http://stores.lulu.com/web2py&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Community</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Groups&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/usergroups&#x27;), (&lt;lazyT &#x27;Twitter&#x27;&gt;, False, &#x27;http://twitter.com/web2py&#x27;), (&lt;lazyT &#x27;Live Chat&#x27;&gt;, False, &#x27;http://webchat.freenode.net/?channels=web2py&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Plugins</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div>[(&#x27;plugin_wiki&#x27;, False, &#x27;http://web2py.com/examples/default/download&#x27;), (&lt;lazyT &#x27;Other Plugins&#x27;&gt;, False, &#x27;http://web2py.com/plugins&#x27;), (&lt;lazyT &#x27;Layout Plugins&#x27;&gt;, False, &#x27;http://web2py.com/layouts&#x27;)]</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">meta</td><td valign="top">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top">author</td><td valign="top">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">description</td><td valign="top">:</td><td><div>a cool new app</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">generator</td><td valign="top">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">keywords</td><td valign="top">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">models_to_run</td><td valign="top">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/create_operator/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">postprocessing</td><td valign="top">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_cookie_expires</td><td valign="top">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_data_name</td><td valign="top">:</td><td><div>session_data_where4now</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_file</td><td valign="top">:</td><td><div>&lt;open file &#x27;C:\\web2py\\applications\\where4now\\sessions\\127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d&#x27;, mode &#x27;rb+&#x27; at 0x07B882E0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_filename</td><td valign="top">:</td><td><div>C:\\web2py\\applications\\where4now\\sessions\\127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id</td><td valign="top">:</td><td><div>127.0.0.1-1d16add7-d49f-4c58-9321-98613d9ad45d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_id_name</td><td valign="top">:</td><td><div>session_id_where4now</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_locked</td><td valign="top">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_new</td><td valign="top">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">session_storage_type</td><td valign="top">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">status</td><td valign="top">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">subtitle</td><td valign="top">:</td><td><div>Personaliza-me!</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">title</td><td valign="top">:</td><td><div>Where4Now</div></td></tr><tr><td style="font-weight:bold;vertical-align:top">view</td><td valign="top">:</td><td><div>default/create_operator.html</div></td></tr></table></div>'
+tRp151
+sS'locals'
+p152
+(dp153
+S'fields'
+p154
+S"[(<gluon.dal.Field object>, 'Lisboa'), (<gluon.dal.Field object>, 'www.operator2.com'), (<gluon.dal.Field object>, '1234'), (<gluon.dal.Field object>, 'Operator 2'), (<gluon.dal.Field object>, '1234'), (<gluon.dal.Field object>, 'Portugal'), (<gluon.dal.Field object>, '1234'), (<gluon.dal.Field object>, '12345'), (<gluon.dal.Field object>, ['Algarve']), (<gluon.dal.Field object>, '1234567'), (<gluon.dal.Field object>, 'qwertyuiop'), (<gluon.dal.Field object>, ['Sun and Sea']), (<gluon.dal.Field object>, 'operator2@teste.com')]"
+p155
+sS'self'
+p156
+S'<gluon.dal.SQLiteAdapter object>'
+p157
+sS'e'
+S"IntegrityError('column nib is not unique',)"
+p158
+sS'table'
+p159
+S'<Table operator (id,name,code,nif,nib,address,po...email,website,gpscoord,tourism_segments,regions)>'
+p160
+sS'query'
+p161
+S'"INSERT INTO operator(town,website,code,name,nib,...ertyuiop\',\'|Sun and Sea|\',\'operator2@teste.com\');"'
+p162
+sssS'traceback'
+p163
+S'Traceback (most recent call last):\n  File "/home/mdipierro/make_web2py/web2py/gluon/restricted.py", line 212, in restricted\n  File "C:\\web2py\\applications\\where4now\\controllers/default.py", line 32, in <module>\n  File "/home/mdipierro/make_web2py/web2py/gluon/globals.py", line 194, in <lambda>\n  File "C:\\web2py\\applications\\where4now\\controllers/default.py", line 22, in create_operator\n  File "/home/mdipierro/make_web2py/web2py/gluon/html.py", line 2188, in process\n  File "/home/mdipierro/make_web2py/web2py/gluon/html.py", line 2127, in validate\n  File "/home/mdipierro/make_web2py/web2py/gluon/sqlhtml.py", line 1571, in accepts\n  File "/home/mdipierro/make_web2py/web2py/gluon/dal.py", line 8598, in insert\n  File "/home/mdipierro/make_web2py/web2py/gluon/dal.py", line 1210, in insert\nIntegrityError: column nib is not unique\n'
+p164
+s.

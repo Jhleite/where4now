@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+[ {{=A('Show all operators', _href=URL('index'))}} ]
+[ {{=A('Show service operator', _href=URL('show_operator', args=operator.id))}} ]<br />
+{{if services:}}
+	<h1>Available Services</h1><br />
+	<ul>{{for service in services:}}
+    	{{=LI(A(service.name, _href=URL('show_service', args=service.id)))}}
+	{{pass}}</ul>
+{{else:}}
+	<h1>No Available Services</h1><br />
+{{pass}}
+[ {{=A('Create new service', _href=URL('create_service', args=operator.id))}} ]<br />

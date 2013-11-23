@@ -1,0 +1,4 @@
+{{extend 'layout.html'}}
+[ {{=A('Show this service', _href=URL('show_service', args=service.id))}} ]<br />
+<h1>Create a new photo for {{=service.name}}</h1>
+{{=form}}

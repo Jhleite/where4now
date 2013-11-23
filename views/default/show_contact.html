@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+[ {{=A('Show all operators', _href=URL('index'))}} ]
+[ {{=A('Show this operator', _href=URL('show_operator', args=contact.operator_id))}} ]<br />
+<h1>{{=contact.name+' '+contact.surname}}</h1>
+<a>Position : </a>{{=contact.professional_position}}<br />
+<a>Phone :    </a>{{=contact.phone}}<br />
+<a>Mobile :   </a>{{=contact.mobile}}<br />
+<a>Fax :      </a>{{=contact.fax}}<br />
+<a>E-mail :   </a>{{=contact.email}}<br />
+<a>Observations : </a>{{=contact.observations}}<br />

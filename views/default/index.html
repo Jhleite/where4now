@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+[ {{=A('Create new operator', _href=URL('create_operator'))}} ]<br />
+<h1>Available Operators</h1><br />
+<ul>{{for operator in operators:}}
+    {{=LI(A(operator.name, _href=URL('show_operator', args=operator.id)))}}
+{{pass}}</ul>
+[ {{=A('Create new operator', _href=URL('create_operator'))}} ]<br />
