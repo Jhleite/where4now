@@ -218,4 +218,7 @@ pip-log.txt
 ## Web2py
 #############
 databases/
+*.table
+sql.log
+storage.sqlite
 sessions/
