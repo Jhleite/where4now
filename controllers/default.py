@@ -34,6 +34,7 @@ def show_operator():
 ###########################################################################################
 def contact_form_processing(form):
     if (not form.vars.name and not form.vars.surname):
+        form.errors.name = 'name or surname cannot be empty'
         form.errors.surname = 'name or surname cannot be empty'
 
 def create_contact():
