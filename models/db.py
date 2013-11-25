@@ -76,7 +76,7 @@ db.define_table('contact',
 db.contact.operator_id.requires = IS_IN_DB(db, db.operator.id)
 #db.contact.name.requires = IS_NOT_EMPTY()
 #db.contact.surname.requires = IS_NOT_EMPTY()
-db.contact.email.requires = IS_EMAIL()
+#db.contact.email.requires = IS_EMAIL()
 db.contact.operator_id.writable = db.contact.operator_id.readable = False
 
 

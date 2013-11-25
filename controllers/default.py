@@ -34,8 +34,14 @@ def show_operator():
 ###########################################################################################
 def contact_form_processing(form):
     if (not form.vars.name and not form.vars.surname):
-        form.errors.name = 'name or surname cannot be empty'
-        form.errors.surname = 'name or surname cannot be empty'
+        form.errors.name = 'Name or surname cannot be empty'
+        form.errors.surname = 'Name or surname cannot be empty'
+    if (not form.vars.phone and not form.vars.mobile):
+        form.errors.phone = 'Please enter one contact number'
+        form.errors.mobile = 'Please enter one contact number'
+    if (IS_EMAIL()(form.vars.email)[1] != None):
+        #form.errors.email = "Please enter a valid e-mail address"
+        form.errors.email = IS_EMAIL()(form.vars.email)[1]
 
 def create_contact():
     """
