@@ -1,6 +1,7 @@
 {{extend 'layout.html'}}
 [ {{=A('Show all operators', _href=URL('index'))}} ]
-[ {{=A('Create new operator', _href=URL('create_operator'))}} ]<br />
+[ {{=A('Create new operator', _href=URL('create_operator'))}} ]
+[ {{=A('Update this operator', _href=URL('modify_operator', args=operator.id))}} ]<br />
 [ {{=A('Create new service for this operator', _href=URL('create_service', args=operator.id))}} ]<br />
 <h1>{{=operator.name}}</h1>
 <a>Address: </a>{{=operator.address}}<br />

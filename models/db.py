@@ -32,6 +32,7 @@ db.define_table('operator',
     Field('regions', 'list:string'),
     format='%(name)s')
 
+db.operator.id.writable = False
 db.operator.name.requires = IS_NOT_IN_DB(db, 'operator.name')
 db.operator.code.requires = IS_NOT_IN_DB(db, 'operator.code')
 db.operator.nif.requires  = IS_NOT_IN_DB(db, 'operator.nif')

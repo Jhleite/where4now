@@ -30,6 +30,14 @@ def show_operator():
     db.contact.operator_id.default = this_operator.id
     operator_contacts = db(db.contact.operator_id==this_operator.id).select()
     return dict(operator=this_operator, contacts=operator_contacts)
+
+def modify_operator():
+    """
+    This action allows the user to modify or delete an operator in the database.
+    """
+    this_operator = db.operator(request.args(0,cast=int)) or redirect(URL(index))
+    form = SQLFORM(db.operator, this_operator, deletable=True).process(next=URL('show_operator', args=this_operator.id))
+    return dict(form=form, operator=this_operator)
     
 ###########################################################################################
 def contact_form_processing(form):
