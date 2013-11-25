@@ -40,7 +40,6 @@ def contact_form_processing(form):
         form.errors.phone = 'Please enter one contact number'
         form.errors.mobile = 'Please enter one contact number'
     if (IS_EMAIL()(form.vars.email)[1] != None):
-        #form.errors.email = "Please enter a valid e-mail address"
         form.errors.email = IS_EMAIL()(form.vars.email)[1]
 
 def create_contact():
@@ -70,6 +69,8 @@ def create_service():
     """
     this_operator = db.operator(request.args(0,cast=int)) or redirect(URL(index))
     db.service.operator_id.default = this_operator.id
+    db.service.mean_rating.default = 1.00
+    db.service.comission.default = 0.15
     form = SQLFORM(db.service).process(next=URL('show_operator', args=this_operator.id))
     return dict(form=form, operator=this_operator)
     
@@ -87,10 +88,29 @@ def show_service():
     This action shows a tourism service details.
     """
     this_service = db.service(request.args(0,cast=int)) or redirect(URL(index))
+    # Correct selling price
+    if (not this_service.selling_price):
+        mult = 1 + this_service.comission
+        price = this_service.operator_price * mult
+        this_service.selling_price = price
+    # Select service extensions
     db.service_extension.service_id.default = this_service.id
     service_extensions = db(db.service_extension.service_id==this_service.id).select()
+    # Select photos
     photos = db(db.photo.service_id==this_service.id).select()
+    # Select comments
     comments = db(db.cust_comment.service_id==this_service.id).select()
+    # Determine service 'mean_rating'
+    i = 0
+    sm = 0
+    for comment in comments:
+        i = i+1
+        sm = sm + comment.rating
+    if (i != 0 and sm != 0):
+        this_service.mean_rating = float(sm)/float(i)
+    else:
+        this_service.mean_rating = 1.00
+    # Add a new comment
     db.cust_comment.service_id.default = this_service.id
     form = SQLFORM(db.cust_comment).process(next=URL('show_service', args=this_service.id))
     return dict(service=this_service, extensions=service_extensions, photos=photos, comments=comments, form=form)

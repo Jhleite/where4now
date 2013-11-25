@@ -74,9 +74,6 @@ db.define_table('contact',
     format='%(name)s')
 
 db.contact.operator_id.requires = IS_IN_DB(db, db.operator.id)
-#db.contact.name.requires = IS_NOT_EMPTY()
-#db.contact.surname.requires = IS_NOT_EMPTY()
-#db.contact.email.requires = IS_EMAIL()
 db.contact.operator_id.writable = db.contact.operator_id.readable = False
 
 
@@ -87,23 +84,28 @@ db.define_table('service',
     Field('operator_id', 'reference operator'),
     Field('name'),
     Field('code'),
-    Field('risk_level'),
-    Field('selling_price'),
-    Field('operator_price'),
-    Field('comission'),
+    Field('risk_level', 'integer'),
+    Field('selling_price', 'float'),
+    Field('operator_price', 'float'),
+    Field('comission', 'float'),
     Field('opening_time', 'time'),
     Field('closing_time', 'time'),
 #    Field('start_time', 'time'),
     Field('duration', 'time'),
-    Field('mean_rating'),
+    Field('mean_rating', 'float'),
     Field('gpscoord'),
     Field('tourism_segments', 'list:string'),
     Field('region', 'string'),
     format='%(name)s')
-    
+   
 db.service.operator_id.requires = IS_IN_DB(db, db.operator.id)
-db.service.code.requires = IS_NOT_IN_DB(db, 'operator.code')
+db.service.name.requires = IS_NOT_EMPTY() 
+db.service.code.requires = IS_NOT_IN_DB(db, 'service.code')
+db.service.risk_level.requires = IS_IN_SET((1,2,3,4,5,6))
+db.service.selling_price.readable = db.service.selling_price.writable = False
+db.service.comission.readable = db.service.comission.writable = False
 db.service.mean_rating.requires = IS_FLOAT_IN_RANGE(1, 5)
+db.service.mean_rating.readable = db.service.mean_rating.writable = False
 db.service.gpscoord.requires = IS_NOT_IN_DB(db, db.service.gpscoord)
 db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
                                                   'City Break',
