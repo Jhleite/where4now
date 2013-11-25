@@ -1,0 +1,5 @@
+{{extend 'layout.html'}}
+[ {{=A('Show all operators', _href=URL('index'))}} ]
+[ {{=A('View this operator', _href=URL('show_operator', args=operator.id))}} ]<br />
+<h1>Modify operator data</h1>
+{{=form}}
