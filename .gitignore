@@ -217,6 +217,7 @@ pip-log.txt
 #############
 ## Web2py
 #############
+databases_old/
 databases/
 *.table
 sql.log
