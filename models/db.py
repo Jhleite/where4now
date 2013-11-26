@@ -49,7 +49,7 @@ db.operator.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
                                                    'Residential',
                                                    'Health and Wellbeing',
                                                    'Sun and Sea',
-                                                   'Business'))
+                                                   'Business'), multiple=True)
 db.operator.regions.requires = IS_IN_SET(('Algarve',
                                           'Alentejo',
                                           'Madeira',
@@ -57,7 +57,7 @@ db.operator.regions.requires = IS_IN_SET(('Algarve',
                                           'Lisboa',
                                           'Porto',
                                           'Center',
-                                          'North'))
+                                          'North'), multiple=True)
 
 #--------------------------------------------------------
 # People of contact for a given touristic operator
@@ -120,13 +120,13 @@ db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
                                                   'Sun and Sea',
                                                   'Business'))
 db.service.region.requires = IS_IN_SET(('Algarve',
-                                          'Alentejo',
-                                          'Madeira',
-                                          'Azores',
-                                          'Lisboa',
-                                          'Porto',
-                                          'Center',
-                                          'North'))
+                                        'Alentejo',
+                                        'Madeira',
+                                        'Azores',
+                                        'Lisboa',
+                                        'Porto',
+                                        'Center',
+                                        'North'))
 db.service.operator_id.writable = db.service.operator_id.readable = False   
 
 #-------------------------------------------------------------

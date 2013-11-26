@@ -4,23 +4,40 @@
 [ {{=A('Update this operator', _href=URL('modify_operator', args=operator.id))}} ]<br />
 [ {{=A('Create new service for this operator', _href=URL('create_service', args=operator.id))}} ]<br />
 <h1>{{=operator.name}}</h1>
-<a>Address: </a>{{=operator.address}}<br />
-{{=operator.postal_code}}<br />
-{{=operator.town}}<br />
-{{=operator.country}}<br />
-<a>E-mail: </a>{{=operator.email}}<br />
-<a>Website: </a>{{=operator.website}}<br />
-<a>Operator code: </a>{{=operator.code}}<br />
-<a>Operator NIF: </a>{{=operator.nif}}<br />
-<a>Operator NIB: </a>{{=operator.nib}}<br />
-<a>Segments: </a>
-{{for segment in operator.tourism_segments:}}
-	{{=segment}}
-{{pass}}<br />
-<a>Regions: </a>
-{{for region in operator.regions:}}
-	{{=region}}
-{{pass}}<br />
+<table>
+	<tr><td><a>Address: </a></td><td>{{=operator.address}}</td></tr>
+	<tr><td><a></a></td><td>{{=operator.postal_code}}</td></tr>
+	<tr><td><a></a></td><td>{{=operator.town}}</td></tr>
+	<tr><td><a></a></td><td>{{=operator.country}}</td></tr>
+
+	<tr><td><a>E-mail: </a></td><td>{{=operator.email}}</td></tr>
+	<tr><td><a>Website: </a></td><td>{{=operator.website}}</td></tr>
+	<tr><td><a>Operator code: </a></td><td>{{=operator.code}}</td></tr>
+	<tr><td><a>Operator NIF: </a></td><td>{{=operator.nif}}</td></tr>
+	<tr><td><a>Operator NIB: </a></td><td>{{=operator.nib}}</td></tr>
+	<tr><td><a>Segments: </a></td>
+	{{i=0}}
+	{{for segment in operator.tourism_segments:}}
+		{{i=i+1}}
+		{{if i == 1:}}
+			<td>
+		{{else:}}
+			<tr><td><a></a></td><td>
+		{{pass}}
+		{{=segment}}</td></tr>
+	{{pass}}
+	<tr><td><a>Regions: </a></td>
+	{{i=0}}
+	{{for region in operator.regions:}}
+		{{i=i+1}}
+		{{if i == 1:}}
+			<td>
+		{{else:}}
+			<tr><td><a></a></td><td>
+		{{pass}}
+		{{=region}}</td></tr> 
+{{pass}}
+</table>
 <br />
 [ {{=A('Show all services for this operator', _href=URL('show_services', args=operator.id))}} ]<br />
 

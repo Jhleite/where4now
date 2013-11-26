@@ -2,9 +2,23 @@
 [ {{=A('Show all operators', _href=URL('index'))}} ]
 [ {{=A('Show this operator', _href=URL('show_operator', args=contact.operator_id))}} ]<br />
 <h1>{{=contact.name+' '+contact.surname}}</h1>
-<a>Position : </a>{{=contact.professional_position}}<br />
-<a>Phone :    </a>{{=contact.phone}}<br />
-<a>Mobile :   </a>{{=contact.mobile}}<br />
-<a>Fax :      </a>{{=contact.fax}}<br />
-<a>E-mail :   </a>{{=contact.email}}<br />
-<a>Observations : </a>{{=contact.observations}}<br />
+<table>
+	{{if contact.professional_position:}}
+		<tr><td><a>Position : </a></td><td>{{=contact.professional_position}}</td></tr>
+	{{pass}}
+	{{if contact.phone:}}
+		<tr><td><a>Phone :    </a></td><td>{{=contact.phone}}</td></tr>
+	{{pass}}
+	{{if contact.mobile:}}
+		<tr><td><a>Mobile :   </a></td><td>{{=contact.mobile}}</td></tr>
+	{{pass}}
+	{{if contact.fax:}}
+		<tr><td><a>Fax :      </a></td><td>{{=contact.fax}}</td></tr>
+	{{pass}}
+	<tr><td><a>E-mail :   </a></td><td>{{=contact.email}}</td></tr>
+	{{if contact.observations:}}
+		<tr><td><a>Observations : </a></td><td>{{=contact.observations}}</td></tr>
+	{{else:}}
+		<tr><td><a>Observations : </a></td><td>No observations entered for this contact.</td></tr>
+	{{pass}}
+</table>

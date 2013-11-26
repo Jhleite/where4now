@@ -31,12 +31,47 @@ def show_operator():
     operator_contacts = db(db.contact.operator_id==this_operator.id).select()
     return dict(operator=this_operator, contacts=operator_contacts)
 
+def modify_operator_form_processing(form, this_operator):
+    """
+    Check if operator is empty on deletion
+    """
+    if form.deleted:
+        contacts = db(db.contact.operator_id==this_operator.id).select()
+        services = db(db.service.operator_id==this_operator.id).select()
+        if(contacts or services):
+            form.errors.deleted  = "Operator contains contacts and/or services.\nDelete them first."
+
 def modify_operator():
     """
     This action allows the user to modify or delete an operator in the database.
     """
     this_operator = db.operator(request.args(0,cast=int)) or redirect(URL(index))
-    form = SQLFORM(db.operator, this_operator, deletable=True).process(next=URL('show_operator', args=this_operator.id))
+    #form = SQLFORM(db.operator, this_operator, deletable=True).process(next=URL('show_operator', args=this_operator.id))
+    form = SQLFORM(db.operator, this_operator, deletable=True)
+    if form.validate():
+        # If selected for delition
+        if form.deleted:
+            contacts = db(db.contact.operator_id==this_operator.id).select()
+            services = db(db.service.operator_id==this_operator.id).select()
+            i = 0
+            for contact in contacts:
+                i = i+1
+            for service in services:
+                i = i+1
+            # If operator has no contacts or services associated
+            if(i==0):
+                db(db.operator.id==this_operator.id).delete()
+                session.flash  = "Operator deleted"
+                redirect(URL('index'))
+            # If operator contains contacts or services associated
+            else:
+                session.flash  = "Operator contains contacts and/or services. Delete them first."
+                #redirect(URL('show_operator', args=this_operator.id))
+        else:
+            this_operator.update_record(**dict(form.vars))
+            session.flash = 'record updated'
+            #redirect(URL('show_operator', args=this_operator.id))          
+        redirect(URL('show_operator', args=this_operator.id))
     return dict(form=form, operator=this_operator)
     
 ###########################################################################################
