@@ -1,24 +1,24 @@
 {{extend 'layout.html'}}
-[ {{=A('Show all operators', _href=URL('index'))}} ]
-[ {{=A('Show this operator', _href=URL('show_operator', args=contact.operator_id))}} ]<br />
+[ {{=A('Show all operators', _href=URL('index'))}} |
+ {{=A('Show operator', _href=URL('show_operator', args=contact.operator_id))}} ]<br />
 <h1>{{=contact.name+' '+contact.surname}}</h1>
 <table>
 	{{if contact.professional_position:}}
-		<tr><td><a>Position : </a></td><td>{{=contact.professional_position}}</td></tr>
+		<tr><td><b>Position : </b></td><td>{{=contact.professional_position}}</td></tr>
 	{{pass}}
 	{{if contact.phone:}}
-		<tr><td><a>Phone :    </a></td><td>{{=contact.phone}}</td></tr>
+		<tr><td><b>Phone :    </b></td><td>{{=contact.phone}}</td></tr>
 	{{pass}}
 	{{if contact.mobile:}}
-		<tr><td><a>Mobile :   </a></td><td>{{=contact.mobile}}</td></tr>
+		<tr><td><b>Mobile :   </b></td><td>{{=contact.mobile}}</td></tr>
 	{{pass}}
 	{{if contact.fax:}}
-		<tr><td><a>Fax :      </a></td><td>{{=contact.fax}}</td></tr>
+		<tr><td><b>Fax :      </b></td><td>{{=contact.fax}}</td></tr>
 	{{pass}}
-	<tr><td><a>E-mail :   </a></td><td>{{=contact.email}}</td></tr>
+	<tr><td><b>E-mail :   </b></td><td>{{=contact.email}}</td></tr>
 	{{if contact.observations:}}
-		<tr><td><a>Observations : </a></td><td>{{=contact.observations}}</td></tr>
+		<tr><td><b>Observations : </b></td><td>{{=contact.observations}}</td></tr>
 	{{else:}}
-		<tr><td><a>Observations : </a></td><td>No observations entered for this contact.</td></tr>
+		<tr><td><b>Observations : </b></td><td>No observations entered for this contact.</td></tr>
 	{{pass}}
 </table>

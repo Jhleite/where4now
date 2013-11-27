@@ -158,6 +158,13 @@ def show_service():
     form = SQLFORM(db.cust_comment).process(next=URL('show_service', args=this_service.id))
     return dict(service=this_service, extensions=service_extensions, photos=photos, comments=comments, form=form)
 
+def delete_comment():
+    this_comment = db.cust_comment(request.args(0,cast=int)) or redirect(URL(index))
+    this_service = db.service(this_comment.service_id)
+    db(db.cust_comment.id==this_comment.id).delete()
+    session.flash  = "Comment deleted"
+    redirect(URL('show_service', args=this_service.id))
+
 ###########################################################################################
 def create_service_extension():
     """

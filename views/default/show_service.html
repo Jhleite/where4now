@@ -1,38 +1,46 @@
 {{extend 'layout.html'}}
-[ {{=A('Show all operators', _href=URL('index'))}} ]
-[ {{=A('Show this operator', _href=URL('show_operator', args=service.operator_id))}} ]<br />
+[ {{=A('Show all operators', _href=URL('index'))}} |
+ {{=A('Show this operator', _href=URL('show_operator', args=service.operator_id))}} ]<br />
 <h1>{{=service.name}}</h1>
 {{for photo in photos:}}
 	<img width="100px" height="200px" src="{{=URL('download_photo', args=photo.file)}}" />
 {{pass}}<br />
 [ {{=A('Upload photo', _href=URL('upload_photo', args=service.id))}} ]<br />
 <br />
-<a>Service code :      </a>{{=service.code}}<br />
-<a>Selling price :     </a>{{=service.selling_price}}<br />
-<a>Operator price :    </a>{{=service.operator_price}}<br />
-<a>Commission :        </a>{{=service.comission}}<br />
+<table>
+<tr><td><b>Service code :      </b></td><td>{{=service.code}}</td></tr>
+<tr><td><b>Selling price :     </b></td><td>{{=service.selling_price}}</td></tr>
+<tr><td><b>Operator price :    </b></td><td>{{=service.operator_price}}</td></tr>
+<tr><td><b>Commission :        </b></td><td>{{=service.comission}}</td></tr>
 
+<tr><td><b>Mean rating :       </b></td><td>{{=service.mean_rating}}</td></tr>
+<tr><td><b>GPS coordinates :   </b></td><td>{{=service.gpscoord}}</td></tr>
 
-
-<a>Mean rating :       </a>{{=service.mean_rating}}<br />
-<a>GPS coordinates :   </a>{{=service.gpscoord}}<br />
-<a>Segments : </a>
+<tr><td><b>Segments :          </b></td>
+{{i=0}}
 {{for segment in service.tourism_segments:}}
-	{{=segment}}
-{{pass}}<br />
-<a>Region : 		   </a>{{=service.region}}<br />
-<br />
+	{{if i!=0:}}
+		<tr><td></td>
+	{{pass}}
+	<td>{{=segment}}</td></tr>
+{{pass}}
+<tr><td><b>Region : 		   </b></td><td>{{=service.region}}</td></tr>
+</table><br />
 
-<a>Opening time :      </a>{{=service.opening_time}}<br />
-<a>Closing time :      </a>{{=service.closing_time}}<br />
-<a>Service duration :  </a>{{=service.duration}}<br />
+<table>
+<tr><td><b>Opening time :      </b></td><td>{{=service.opening_time}}</td></tr>
+<tr><td><b>Closing time :      </b></td><td>{{=service.closing_time}}</td></tr>
+<tr><td><b>Service duration :  </b></td><td>{{=service.duration}}</td></tr>
+</table>
 
 {{if extensions:}}
 	{{for extension in extensions:}}
-		{{=H3(extension.name)}}
-		<a>Selling price :   </a>{{=extension.selling_price}}<br />
-		<a>Operator price :  </a>{{=extension.operator_price}}<br />
-		<a>Commission :      </a>{{=extension.comission}}<br />
+		{{=H4(extension.name)}}
+		<table>
+		<tr><td><b>Selling price :   </b></td><td>{{=extension.selling_price}}</td></tr>
+		<tr><td><b>Operator price :  </b></td><td>{{=extension.operator_price}}</td></tr>
+		<tr><td><b>Commission :      </b></td><td>{{=extension.comission}}</td></tr>
+		</table>
 	{{pass}}
 {{else:}}
 	<h3>No extensions available</h3>
@@ -42,13 +50,16 @@
 
 {{if comments:}}
 	<h3>Comments for this service</h3>
+	<table>
+	<tr><td><h4>Comment   </h4></td><td><h4>Rating    </h4></td><td></td></tr>
 	{{for comment in comments:}}
-		<a>Rating :   </a>{{=comment.rating}}<br />
-		<a>Comment :  </a>{{=comment.comment}}<br />
-	{{pass}}<br />
-	<a>Insert a comment</a>
+		<tr><td>{{=comment.comment}}</td>
+		<td>{{=comment.rating}}</td>
+		<td>[ {{=A('Delete', _href=URL('delete_comment', args=comment.id))}} ]</td></tr>
+	{{pass}}</table><br />
+	<h4>Insert a comment</h4>
 {{else:}}
 	<h3>No comments for this service</h3>
-	<a>Be the first to comment</a>
+	<b>Be the first to comment</b>
 {{pass}}
 {{=form}}
