@@ -1,11 +1,15 @@
 {{extend 'layout.html'}}
-[ {{=A('Show all operators', _href=URL('index'))}} |
- {{=A('Show this operator', _href=URL('show_operator', args=service.operator_id))}} ]<br />
+ 
+{{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('index'))}}
+{{=A(SPAN('View this operator', _class='buttontext button', _tytle='View this operator'), _class='button btn', _href=URL('show_operator', args=service.operator_id))}}
+ 
 <h1>{{=service.name}}</h1>
 {{for photo in photos:}}
 	<img width="100px" height="200px" src="{{=URL('download_photo', args=photo.file)}}" />
 {{pass}}<br />
-[ {{=A('Upload photo', _href=URL('upload_photo', args=service.id))}} ]<br />
+
+{{=A(SPAN('Upload photo', _class='buttontext button', _tytle='Upload photo'), _class='button btn', _href=URL('upload_photo', args=service.id))}}
+
 <br />
 <table>
 <tr><td><b>Service code :      </b></td><td>{{=service.code}}</td></tr>
@@ -25,13 +29,15 @@
 	<td>{{=segment}}</td></tr>
 {{pass}}
 <tr><td><b>Region : 		   </b></td><td>{{=service.region}}</td></tr>
-</table><br />
+</table>
 
 <table>
 <tr><td><b>Opening time :      </b></td><td>{{=service.opening_time}}</td></tr>
 <tr><td><b>Closing time :      </b></td><td>{{=service.closing_time}}</td></tr>
 <tr><td><b>Service duration :  </b></td><td>{{=service.duration}}</td></tr>
-</table>
+</table><br />
+
+{{=A(SPAN('Create service extension', _class='buttontext button', _tytle='Create service extension'), _class='button btn', _href=URL('create_service_extension', args=service.id))}}
 
 {{if extensions:}}
 	{{for extension in extensions:}}
@@ -46,8 +52,6 @@
 	<h3>No extensions available</h3>
 {{pass}}<br />
 
-[ {{=A('Create service extension', _href=URL('create_service_extension', args=service.id))}} ]<br />
-
 {{if comments:}}
 	<h3>Comments for this service</h3>
 	<table>
@@ -55,7 +59,9 @@
 	{{for comment in comments:}}
 		<tr><td>{{=comment.comment}}</td>
 		<td>{{=comment.rating}}</td>
-		<td>[ {{=A('Delete', _href=URL('delete_comment', args=comment.id))}} ]</td></tr>
+		<td>
+		{{=A(SPAN('Delete', _class='buttontext button', _tytle='Delete comment'), _class='button btn', _href=URL('delete_comment', args=comment.id))}}
+		</td></tr>
 	{{pass}}</table><br />
 	<h4>Insert a comment</h4>
 {{else:}}

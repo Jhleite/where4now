@@ -1,13 +1,18 @@
 {{extend 'layout.html'}}
-[ {{=A('Show all operators', _href=URL('index'))}} |
- {{=A('Show operator', _href=URL('show_operator', args=operator.id))}} ]<br />
-[ {{=A('Create new service', _href=URL('create_service', args=operator.id))}} ]<br />
+
+{{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('index'))}}
+{{=A(SPAN('View this operator', _class='buttontext button', _tytle='View this operator'), _class='button btn', _href=URL('show_operator', args=operator.id))}}
+<br /><br />
+{{=A(SPAN('Create new service', _class='buttontext button', _tytle='Create new service'), _class='button btn', _href=URL('create_service', args=operator.id))}}
+<br />
 {{if services:}}
-	<h1>Available Services</h1><br />
+	<h1>Available Services</h1>
+	<br />
 	<ul>{{for service in services:}}
     	{{=LI(A(service.name, _href=URL('show_service', args=service.id)))}}
 	{{pass}}</ul>
 {{else:}}
 	<h1>No Available Services</h1><br />
 {{pass}}
+{{=A(SPAN('Create new service', _class='buttontext button', _tytle='Create new service'), _class='button btn', _href=URL('create_service', args=operator.id))}}
 
