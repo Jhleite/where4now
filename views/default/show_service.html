@@ -6,7 +6,7 @@
 <h1>{{=service.name}}</h1>
 {{for photo in photos:}}
 	<img width="100px" height="200px" src="{{=URL('download_photo', args=photo.file)}}" />
-{{pass}}<br />
+{{pass}}<br /><br />
 
 {{=A(SPAN('Upload photo', _class='buttontext button', _tytle='Upload photo'), _class='button btn', _href=URL('upload_photo', args=service.id))}}
 
@@ -41,7 +41,12 @@
 
 {{if extensions:}}
 	{{for extension in extensions:}}
-		{{=H4(extension.name)}}
+		<table>
+			<tr><td>{{=H4(extension.name)}}</td>
+			<td>
+			{{=A(SPAN('Modify/Delete', _class='buttontext button', _tytle='Modify or delete a service extension'), _class='button btn', _href=URL('modify_service_extension', args=extension.id))}}
+			</td></tr>
+		</table>
 		<table>
 		<tr><td><b>Selling price :   </b></td><td>{{=extension.selling_price}}</td></tr>
 		<tr><td><b>Operator price :  </b></td><td>{{=extension.operator_price}}</td></tr>

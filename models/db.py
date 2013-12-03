@@ -104,6 +104,7 @@ db.service.name.requires = IS_NOT_EMPTY()
 db.service.code.requires = IS_NOT_IN_DB(db, 'service.code')
 db.service.risk_level.requires = IS_IN_SET((1,2,3,4,5,6))
 db.service.selling_price.readable = db.service.selling_price.writable = False
+db.service.comission.requires = IS_FLOAT_IN_RANGE(0, 2)
 db.service.comission.readable = db.service.comission.writable = False
 db.service.mean_rating.requires = IS_FLOAT_IN_RANGE(1, 5)
 db.service.mean_rating.readable = db.service.mean_rating.writable = False
@@ -135,13 +136,16 @@ db.service.operator_id.writable = db.service.operator_id.readable = False
 db.define_table('service_extension',
     Field('service_id', 'reference service'),
     Field('name'),
-    Field('selling_price'),
-    Field('operator_price'),
-    Field('comission'),
+    Field('selling_price', 'float'),
+    Field('operator_price', 'float'),
+    Field('comission', 'float'),
     format='%(name)s')
 
 db.service_extension.service_id.requires = IS_IN_DB(db, db.service.id)    
 db.service_extension.service_id.writable = db.service_extension.service_id.readable = False
+db.service_extension.selling_price.writable = db.service_extension.selling_price.readable = False
+db.service_extension.comission.requires = IS_FLOAT_IN_RANGE(0, 2)
+db.service_extension.comission.writable = db.service_extension.comission.readable = False
 
 #------------------------------------------------------------
 # Photos for a given touristic service

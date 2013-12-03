@@ -133,12 +133,14 @@ def show_service():
     this_service = db.service(request.args(0,cast=int)) or redirect(URL(index))
     # Correct selling price
     if (not this_service.selling_price):
-        mult = 1 + this_service.comission
-        price = this_service.operator_price * mult
-        this_service.selling_price = price
+        this_service.selling_price = this_service.operator_price * (1 + this_service.comission)
     # Select service extensions
     db.service_extension.service_id.default = this_service.id
     service_extensions = db(db.service_extension.service_id==this_service.id).select()
+    # Correct service extensions selling price
+    for extension in service_extensions:
+        if (not extension.selling_price):
+            extension.selling_price = extension.operator_price * (1 + extension.comission)
     # Select photos
     photos = db(db.photo.service_id==this_service.id).select()
     # Select comments
@@ -158,12 +160,17 @@ def show_service():
     form = SQLFORM(db.cust_comment).process(next=URL('show_service', args=this_service.id))
     return dict(service=this_service, extensions=service_extensions, photos=photos, comments=comments, form=form)
 
+###########################################################################################
 def delete_comment():
+    """
+    This action deletes a comment associated with a tourism service.
+    """
     this_comment = db.cust_comment(request.args(0,cast=int)) or redirect(URL(index))
     this_service = db.service(this_comment.service_id)
     db(db.cust_comment.id==this_comment.id).delete()
     session.flash  = "Comment deleted"
     redirect(URL('show_service', args=this_service.id))
+    return
 
 ###########################################################################################
 def create_service_extension():
@@ -173,7 +180,20 @@ def create_service_extension():
     """
     this_service = db.service(request.args(0,cast=int)) or redirect(URL(index))
     db.service_extension.service_id.default = this_service.id
+    db.service_extension.comission.default = 0.15
     form = SQLFORM(db.service_extension).process(next=URL('show_service', args=this_service.id))
+    return dict(form=form, service=this_service)
+
+def modify_service_extension():
+    """
+    This action modifies or deletes a service extension associated with a tourism service.
+    """
+    this_extension = db.service_extension(request.args(0,cast=int)) or redirect(URL(index))
+    this_service = db.service(this_extension.service_id)
+    form = SQLFORM(db.service_extension, this_extension, deletable=True).process(next=URL('show_service', args=this_service.id))
+    #db(db.service_extension.id==this_extension.id).delete()
+    #session.flash  = "Service extension deleted"
+    #redirect(URL('show_service', args=this_service.id))
     return dict(form=form, service=this_service)
 
 
