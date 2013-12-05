@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Tivemos que criar um ficheiro novo para resolver conflitos!
 
 alteracao um
@@ -8,3 +9,13 @@ O Merge nao funciona bem.
 Pelo menos nao funcionou bem nos testes que fizemos!
 
 Alteracao 2
+=======
+Tivemos que criar um ficheiro novo para resolver conflitos!
+
+alteracao um
+
+Nao devemos utilizar caracteres especiais.
+
+O Merge nao funciona bem.
+Pelo menos nao funcionou bem nos testes que fizemos!
+>>>>>>> 2a5a71a3a54fb16926ea094307f608f3fa25751a
