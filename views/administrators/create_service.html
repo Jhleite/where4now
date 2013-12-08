@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+
+{{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('index'))}}
+{{=A(SPAN('Show this operator', _class='buttontext button', _tytle='Show this operator'), _class='button btn', _href=URL('show_operator', args=operator.id))}}
+
+<h1>Create a new service for {{=operator.name}}</h1>
+{{=form}}

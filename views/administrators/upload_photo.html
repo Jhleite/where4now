@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+
+{{=A(SPAN('Show this service', _class='buttontext button', _tytle='Show this service'), _class='button btn', _href=URL('show_service', args=service.id))}}
+
+<h1>Create a new photo for {{=service.name}}</h1>
+{{=form}}
