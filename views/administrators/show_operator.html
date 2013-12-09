@@ -1,6 +1,6 @@
 {{extend 'layout.html'}}
  
-{{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('index'))}}
+{{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
 {{=A(SPAN('Create new operator', _class='buttontext button', _tytle='Create new operator'), _class='button btn', _href=URL('create_operator'))}}
 {{=A(SPAN('Update/delete operator', _class='buttontext button', _tytle='Update/delete operator'), _class='button btn', _href=URL('modify_operator', args=operator.id))}}
  
