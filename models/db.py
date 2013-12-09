@@ -49,7 +49,8 @@ db.operator.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
                                                    'Residential',
                                                    'Health and Wellbeing',
                                                    'Sun and Sea',
-                                                   'Business'), multiple=True)
+                                                   'Business',
+                                                   'Religious'), multiple=True)
 db.operator.regions.requires = IS_IN_SET(('Algarve',
                                           'Alentejo',
                                           'Madeira',
@@ -86,14 +87,14 @@ db.define_table('service',
     Field('name'),
     Field('code'),
     Field('risk_level', 'integer'),
-    Field('selling_price', 'float'),
-    Field('operator_price', 'float'),
-    Field('comission', 'float'),
+    Field('selling_price', 'double'),
+    Field('operator_price', 'double'),
+    Field('comission', 'double'),
     Field('opening_time', 'time'),
     Field('closing_time', 'time'),
 #    Field('start_time', 'time'),
     Field('duration', 'time'),
-    Field('mean_rating', 'float'),
+    Field('mean_rating', 'double'),
     Field('gpscoord'),
     Field('tourism_segments', 'list:string'),
     Field('region', 'string'),
@@ -106,7 +107,7 @@ db.service.risk_level.requires = IS_IN_SET((1,2,3,4,5,6))
 db.service.selling_price.readable = db.service.selling_price.writable = False
 db.service.comission.requires = IS_FLOAT_IN_RANGE(0, 2)
 db.service.comission.readable = db.service.comission.writable = False
-db.service.mean_rating.requires = IS_FLOAT_IN_RANGE(1, 5)
+db.service.mean_rating.requires = IS_FLOAT_IN_RANGE(0.00, 5.00)
 db.service.mean_rating.readable = db.service.mean_rating.writable = False
 db.service.gpscoord.requires = IS_NOT_IN_DB(db, db.service.gpscoord)
 db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
@@ -119,7 +120,8 @@ db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
                                                   'Residential',
                                                   'Health and Wellbeing',
                                                   'Sun and Sea',
-                                                  'Business'))
+                                                  'Business',
+                                                  'Religious'))
 db.service.region.requires = IS_IN_SET(('Algarve',
                                         'Alentejo',
                                         'Madeira',
@@ -136,9 +138,9 @@ db.service.operator_id.writable = db.service.operator_id.readable = False
 db.define_table('service_extension',
     Field('service_id', 'reference service'),
     Field('name'),
-    Field('selling_price', 'float'),
-    Field('operator_price', 'float'),
-    Field('comission', 'float'),
+    Field('selling_price', 'double'),
+    Field('operator_price', 'double'),
+    Field('comission', 'double'),
     format='%(name)s')
 
 db.service_extension.service_id.requires = IS_IN_DB(db, db.service.id)    

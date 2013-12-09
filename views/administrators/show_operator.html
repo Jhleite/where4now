@@ -55,6 +55,9 @@
 		<td>{{=contact.professional_position}}</td>
 		<td>
 		{{=A(SPAN('View details', _class='buttontext button', _tytle='View details'), _class='button btn', _href=URL('show_contact', args=contact.id))}}
+		</td>
+		<td>
+		{{=A(SPAN('Modify/Delete', _class='buttontext button', _tytle='Modify or Delete a contact'), _class='button btn', _href=URL('modify_contact', args=contact.id))}}
 		</td></tr>
 	{{pass}}</table>
 {{else:}}

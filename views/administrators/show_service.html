@@ -2,10 +2,14 @@
  
 {{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
 {{=A(SPAN('View this operator', _class='buttontext button', _tytle='View this operator'), _class='button btn', _href=URL('show_operator', args=service.operator_id))}}
+<br /><br />
+{{=A(SPAN('Modify/Delete this service', _class='buttontext button', _tytle='Modify/Delete this service'), _class='button btn', _href=URL('modify_service', args=service.id))}}
  
 <h1>{{=service.name}}</h1>
 {{for photo in photos:}}
-	<img width="100px" height="200px" src="{{=URL('download_photo', args=photo.file)}}" />
+	<a href="{{=URL('download_photo', args=photo.file)}}">
+	<img width="100px" height="100px" src="{{=URL('download_photo', args=photo.file)}}" />
+	</a>
 {{pass}}<br /><br />
 
 {{=A(SPAN('Upload photo', _class='buttontext button', _tytle='Upload photo'), _class='button btn', _href=URL('upload_photo', args=service.id))}}
