@@ -46,7 +46,7 @@ def modify_operator_form_processing(form, this_operator):
         contacts = db(db.contact.operator_id==this_operator.id).select()
         services = db(db.service.operator_id==this_operator.id).select()
         if(contacts or services):
-            form.errors.deleted  = "Operator contains services.\nDelete them first."
+            form.errors.deleted  = T("Operator contains services.\nDelete them first.")
 
 def modify_operator():
     """
@@ -68,15 +68,15 @@ def modify_operator():
             # If operator has no contacts or services associated
             if(i==0):
                 db(db.operator.id==this_operator.id).delete()
-                session.flash  = "Operator deleted"
+                session.flash  = T("Operator deleted")
                 redirect(URL('show_operators'))
             # If operator contains contacts or services associated
             else:
-                session.flash  = "Operator contains services. Delete them first."
+                session.flash  = T("Operator contains services. Delete them first.")
                 #redirect(URL('show_operator', args=this_operator.id))
         else:
             this_operator.update_record(**dict(form.vars))
-            session.flash = 'record updated'
+            session.flash = T('record updated')
             #redirect(URL('show_operator', args=this_operator.id))          
         redirect(URL('show_operator', args=this_operator.id))
     return dict(form=form, operator=this_operator)
@@ -84,11 +84,11 @@ def modify_operator():
 ###########################################################################################
 def contact_form_processing(form):
     if (not form.vars.name and not form.vars.surname):
-        form.errors.name = 'Name or surname cannot be empty'
-        form.errors.surname = 'Name or surname cannot be empty'
+        form.errors.name = T('Name or surname cannot be empty')
+        form.errors.surname = T('Name or surname cannot be empty')
     if (not form.vars.phone and not form.vars.mobile):
-        form.errors.phone = 'Please enter one contact number'
-        form.errors.mobile = 'Please enter one contact number'
+        form.errors.phone = T('Please enter one contact number')
+        form.errors.mobile = T('Please enter one contact number')
     if (IS_EMAIL()(form.vars.email)[1] != None):
         form.errors.email = IS_EMAIL()(form.vars.email)[1]
 
@@ -192,7 +192,7 @@ def delete_comment():
     this_comment = db.cust_comment(request.args(0,cast=int)) or redirect(URL('show_operators'))
     this_service = db.service(this_comment.service_id)
     db(db.cust_comment.id==this_comment.id).delete()
-    session.flash  = "Comment deleted"
+    session.flash  = T("Comment deleted")
     redirect(URL('show_service', args=this_service.id))
     return
 

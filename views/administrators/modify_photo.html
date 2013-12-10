@@ -1,8 +1,8 @@
 {{extend 'layout.html'}}
  
-{{=A(SPAN('View this service', _class='buttontext button', _tytle='View this service'), _class='button btn', _href=URL('show_service', args=photo.service_id))}}
-{{=A(SPAN('View this photo', _class='buttontext button', _tytle='View this photo'), _class='button btn', _href=URL('show_photo', args=photo.id))}}
+{{=A(SPAN(T('View this service'), _class='buttontext button', _title='View this service'), _class='button btn', _href=URL('show_service', args=photo.service_id))}}
+{{=A(SPAN(T('View this photo'), _class='buttontext button', _title='View this photo'), _class='button btn', _href=URL('show_photo', args=photo.id))}}
 <br /><br />
 
-<h1>Modify or Delete photo</h1>
+<h1>{{=T('Modify or Delete photo')}}</h1>
 {{=form}}

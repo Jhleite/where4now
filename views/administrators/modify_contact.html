@@ -1,6 +1,6 @@
 {{extend 'layout.html'}}
 
-{{=A(SPAN('View this operator', _class='buttontext button', _tytle='View this operator'), _class='button btn', _href=URL('show_operator', args=contact.operator_id))}}
+{{=A(SPAN(T('View this operator'), _class='buttontext button', _title='View this operator'), _class='button btn', _href=URL('show_operator', args=contact.operator_id))}}
 
-<h1>Modify/Delete contact data</h1>
+<h1>{{=T('Modify/Delete contact data')}}</h1>
 {{=form}}

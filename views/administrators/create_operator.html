@@ -1,6 +1,6 @@
 {{extend 'layout.html'}}
 
-{{=A(SPAN('Show all operators', _class='buttontext button', _tytle='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
+{{=A(SPAN(T('Show all operators'), _class='buttontext button', _title='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
 
-<h1>Create a new Tourism operator</h1>
+<h1>{{=T('Create a new Tourism operator')}}</h1>
 {{=form}}

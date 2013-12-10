@@ -127,8 +127,8 @@ db.service.region.requires = IS_IN_SET(('Algarve',
                                         'Alentejo',
                                         'Madeira',
                                         'Azores',
-                                        'Lisboa',
-                                        'Porto',
+                                        'Lisbon',
+                                        'Oporto',
                                         'Center',
                                         'North'))
 db.service.operator_id.writable = db.service.operator_id.readable = False   

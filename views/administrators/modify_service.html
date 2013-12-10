@@ -1,6 +1,6 @@
 {{extend 'layout.html'}}
 
-{{=A(SPAN('View this service', _class='buttontext button', _tytle='View this service'), _class='button btn', _href=URL('show_service', args=service.id))}}
+{{=A(SPAN(T('View this service'), _class='buttontext button', _title='View this service'), _class='button btn', _href=URL('show_service', args=service.id))}}
 
-<h1>Modify/Delete service data</h1>
+<h1>{{=T('Modify/Delete service data')}}</h1>
 {{=form}}
