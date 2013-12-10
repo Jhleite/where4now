@@ -7,12 +7,13 @@
  
 <h1>{{=service.name}}</h1>
 {{for photo in photos:}}
-	<a href="{{=URL('download_photo', args=photo.file)}}">
+	<a href="{{=URL('show_photo', args=photo.id)}}">
 	<img width="100px" height="100px" src="{{=URL('download_photo', args=photo.file)}}" />
 	</a>
 {{pass}}<br /><br />
 
 {{=A(SPAN('Upload photo', _class='buttontext button', _tytle='Upload photo'), _class='button btn', _href=URL('upload_photo', args=service.id))}}
+{{=A(SPAN('Show and edit all photos', _class='buttontext button', _tytle='View and edit all photos'), _class='button btn', _href=URL('show_photos', args=service.id))}}
 
 <br />
 <table>
@@ -22,7 +23,9 @@
 <tr><td><b>Commission :        </b></td><td>{{=service.comission}}</td></tr>
 
 <tr><td><b>Mean rating :       </b></td><td>{{=service.mean_rating}}</td></tr>
-<tr><td><b>GPS coordinates :   </b></td><td>{{=service.gpscoord}}</td></tr>
+<tr><td><b>GPS coordinates :   </b></td><td></td></tr>
+<tr><td><b>    Latitude  -->   </b></td><td>{{=service.gps_latitude}}</td></tr>
+<tr><td><b>    Longitude -->   </b></td><td>{{=service.gps_longitude}}</td></tr>
 
 <tr><td><b>Segments :          </b></td>
 {{i=0}}
@@ -33,9 +36,9 @@
 	<td>{{=segment}}</td></tr>
 {{pass}}
 <tr><td><b>Region : 		   </b></td><td>{{=service.region}}</td></tr>
-</table>
 
-<table>
+<tr><td></td><td></td></tr>
+
 <tr><td><b>Opening time :      </b></td><td>{{=service.opening_time}}</td></tr>
 <tr><td><b>Closing time :      </b></td><td>{{=service.closing_time}}</td></tr>
 <tr><td><b>Service duration :  </b></td><td>{{=service.duration}}</td></tr>

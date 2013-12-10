@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+ 
+{{=A(SPAN('View this service', _class='buttontext button', _tytle='View this service'), _class='button btn', _href=URL('show_service', args=service.id))}}
+{{=A(SPAN('Upload photo', _class='buttontext button', _tytle='Upload photo'), _class='button btn', _href=URL('upload_photo', args=service.id))}}
+<br /><br />
+
+{{for photo in photos:}}
+	<a href="{{=URL('show_photo', args=photo.id)}}">
+		<img width="200px" height="100px" src="{{=URL('download_photo', args=photo.file)}}" />
+	</a>
+
+	{{=A(SPAN('Modify/Delete photo', _class='buttontext button', _tytle='Modify or Delete the photo'), _class='button btn', _href=URL('modify_photo', args=photo.id))}}
+{{pass}}

@@ -236,3 +236,27 @@ def download_photo():
     This action downloads a photo to be shown on screen.
     """
     return response.download(request, db)
+
+def show_photo():
+    """
+    This action shows a photo on screen.
+    """
+    this_photo = db.photo(request.args(0,cast=int)) or redirect(URL('show_operators'))
+    return dict(photo=this_photo)
+
+def show_photos():
+    """
+    This action shows all photos on screen of a given service.
+    """
+    this_service = db.service(request.args(0,cast=int)) or redirect(URL('show_operators'))
+    photos = db(db.photo.service_id==this_service.id).select()
+    return dict(service=this_service, photos=photos)
+
+def modify_photo():
+    """
+    This action modifies or deletes a photo.
+    """
+    this_photo = db.photo(request.args(0,cast=int)) or redirect(URL('show_operators'))
+    form = SQLFORM(db.photo, this_photo, deletable=True).process(next=URL('show_service', args=this_photo.service_id))
+    return dict(form=form, photo=this_photo)
+

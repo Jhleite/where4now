@@ -95,7 +95,8 @@ db.define_table('service',
 #    Field('start_time', 'time'),
     Field('duration', 'time'),
     Field('mean_rating', 'double'),
-    Field('gpscoord'),
+    Field('gps_latitude', 'double'),
+    Field('gps_longitude', 'double'),
     Field('tourism_segments', 'list:string'),
     Field('region', 'string'),
     format='%(name)s')
@@ -109,7 +110,7 @@ db.service.comission.requires = IS_FLOAT_IN_RANGE(0, 2)
 db.service.comission.readable = db.service.comission.writable = False
 db.service.mean_rating.requires = IS_FLOAT_IN_RANGE(0.00, 5.00)
 db.service.mean_rating.readable = db.service.mean_rating.writable = False
-db.service.gpscoord.requires = IS_NOT_IN_DB(db, db.service.gpscoord)
+#db.service.gpscoord.requires = IS_NOT_IN_DB(db, db.service.gpscoord)
 db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
                                                   'City Break',
                                                   'Nature',
