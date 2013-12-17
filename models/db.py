@@ -134,7 +134,7 @@ db.service.region.requires = IS_IN_SET(('Algarve',
 db.service.operator_id.writable = db.service.operator_id.readable = False   
 
 #-------------------------------------------------------------
-# Service extensions for a given touristic service
+# Service extensions for a given touristic service -----------
 #-------------------------------------------------------------
 db.define_table('service_extension',
     Field('service_id', 'reference service'),
