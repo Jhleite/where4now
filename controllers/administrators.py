@@ -80,7 +80,19 @@ def modify_operator():
             #redirect(URL('show_operator', args=this_operator.id))          
         redirect(URL('show_operator', args=this_operator.id))
     return dict(form=form, operator=this_operator)
-    
+
+def search_operator():
+    """An AJAX to search operators by name"""
+    form = FORM(INPUT(_id='keyword', _name='keyword', _onkeyup="ajax('callback_operator', ['keyword'], 'target');"))
+    return dict(form=form, target_div=DIV(_id='target'))
+
+def callback_operator():
+    """An AJAX callback function that returns a <ul> of links to operators"""
+    query = db.operator.name.contains(request.vars.keyword)
+    operators = db(query).select(orderby=db.operator.name)
+    links = [A(op.name, _href=URL('show_operator', args=op.id)) for op in operators]
+    return UL(*links)
+
 ###########################################################################################
 def contact_form_processing(form):
     if (not form.vars.name and not form.vars.surname):
@@ -183,6 +195,20 @@ def modify_service():
     this_service = db.service(request.args(0,cast=int)) or redirect(URL('show_service', request.args(0,cast=int)))
     form = SQLFORM(db.service, this_service, deletable=True).process(next=URL('show_service', args=[this_service.id, this_service.operator_id]))
     return dict(form=form, service=this_service)
+
+def search_service():
+    """An AJAX to search this operator services by name"""
+    this_operator = db.operator(request.args(0,cast=int)) or redirect(URL('show_operators'))
+    form = FORM(INPUT(_id='keyword', _name='keyword', _onkeyup="ajax('callback_service', ['keyword'], 'target2');"))
+    return dict(form=form, target_div=DIV(_id='target2'), operator=this_operator)
+
+def callback_service():
+    """An AJAX callback function that returns a <ul> of links to this operator services"""
+    query = db.service.name.contains(request.vars.keyword)
+    #services = db(query.operator_id==request.vars.this_operator.id).select(orderby=db.service.name)
+    services = db(query).select(orderby=db.service.name)
+    links = [A(serv.name, _href=URL('show_service', args=serv.id)) for serv in services]
+    return UL(*links)
 
 ###########################################################################################
 def delete_comment():

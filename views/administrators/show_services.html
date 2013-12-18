@@ -4,6 +4,7 @@
 {{=A(SPAN(T('View this operator'), _class='buttontext button', _title='View this operator'), _class='button btn', _href=URL('show_operator', args=operator.id))}}
 <br /><br />
 {{=A(SPAN(T('Create new service'), _class='buttontext button', _title='Create new service'), _class='button btn', _href=URL('create_service', args=operator.id))}}
+{{=A(SPAN(T('Search service'), _class='buttontext button', _title='Search for operator services'), _class='button btn', _href=URL('search_service', args=operator.id))}}
 <br />
 {{if services:}}
 	<h1>{{=T('Available Services')}}</h1>

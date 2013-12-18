@@ -1,10 +1,11 @@
 {{extend 'layout.html'}}
 
-{{=A(SPAN(T('Create new operator'), _class='buttontext button', _title='Create a new operator'), _class='button btn', _href=URL('create_operator'))}}
+{{=A(SPAN(T('New operator'), _class='buttontext button', _title='Create a new operator'), _class='button btn', _href=URL('create_operator'))}}
+{{=A(SPAN(T('Search operator'), _class='buttontext button', _title='Search for operators'), _class='button btn', _href=URL('search_operator'))}}
 
 <h1>{{=T('Available Operators')}}</h1><br />
 <ul>{{for operator in operators:}}
     {{=LI(A(operator.name, _href=URL('show_operator', args=operator.id)))}}
 {{pass}}</ul>
 
-{{=A(SPAN(T('Create new operator'), _class='buttontext button', _tytle='Create a new operator'), _class='button btn', _href=URL('create_operator'))}}
+{{=A(SPAN(T('New operator'), _class='buttontext button', _title='Create a new operator'), _class='button btn', _href=URL('create_operator'))}}
