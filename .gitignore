@@ -217,6 +217,7 @@ pip-log.txt
 #############
 ## Web2py
 #############
+photo.file.*
 databases_old/
 databases/
 *.table
