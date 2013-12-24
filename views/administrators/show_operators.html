@@ -5,7 +5,7 @@
 
 <h1>{{=T('Available Operators')}}</h1><br />
 <ul>{{for operator in operators:}}
-    {{=LI(A(operator.name, _href=URL('show_operator', args=operator.id)))}}
+    {{=DIV(A(operator.name, _href=URL('show_operator', args=operator.id)))}}
 {{pass}}</ul>
 
 {{=A(SPAN(T('New operator'), _class='buttontext button', _title='Create a new operator'), _class='button btn', _href=URL('create_operator'))}}

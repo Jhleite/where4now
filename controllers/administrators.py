@@ -90,8 +90,8 @@ def callback_operator():
     """An AJAX callback function that returns a <ul> of links to operators"""
     query = db.operator.name.contains(request.vars.keyword)
     operators = db(query).select(orderby=db.operator.name)
-    links = [A(op.name, _href=URL('show_operator', args=op.id)) for op in operators]
-    return UL(*links)
+    links = [DIV(A(op.name, _href=URL('show_operator', args=op.id))) for op in operators]
+    return SPAN(*links)
 
 ###########################################################################################
 def contact_form_processing(form):

@@ -158,6 +158,8 @@
 'New Record': 'Novo Registo',
 'new record inserted': 'novo registo inserido',
 'next 100 rows': 'próximas 100 linhas',
+'No Available Services': 'No Available Services',
+'No contacts created for this Operator': 'No contacts created for this Operator',
 'No Data': 'No Data',
 'No databases in this application': 'Não há bases de dados nesta aplicação',
 'Object or table name': 'Object or table name',

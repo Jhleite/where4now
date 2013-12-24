@@ -10,7 +10,7 @@
 	<h1>{{=T('Available Services')}}</h1>
 	<br />
 	<ul>{{for service in services:}}
-    	{{=LI(A(service.name, _href=URL('show_service', args=service.id)))}}
+    	{{=DIV(A(service.name, _href=URL('show_service', args=service.id)))}}
 	{{pass}}</ul>
 {{else:}}
 	<h1>{{=T('No Available Services')}}</h1><br />
