@@ -8,7 +8,7 @@
 <h1>{{=service.name}}</h1>
 {{for photo in photos:}}
 	<a href="{{=URL('show_photo', args=photo.id)}}">
-	<img width="100px" height="100px" src="{{=URL('download_photo', args=photo.file)}}" />
+	<img height="100" width="100" src="{{=URL('download_photo', args=photo.file)}}" alt="{{=URL('download_photo', args=photo.title)}}" title="{{=URL('download_photo', args=photo.title)}}" border="4" />
 	</a>
 {{pass}}<br /><br />
 
@@ -33,9 +33,21 @@
 	{{if i!=0:}}
 		<tr><td></td>
 	{{pass}}
-	<td>{{=segment}}</td></tr>
+	{{i+=1}}
+	{{query = db(db.tourism_segment.id==segment).select()}}
+	<td>{{=query[0].segment_name}}</td></tr>
 {{pass}}
-<tr><td><b>{{=T('Region : 		   ')}}</b></td><td>{{=service.region}}</td></tr>
+
+<tr><td><b>{{=T('Region : 		   ')}}</b></td>
+{{i=0}}
+{{for region in service.region:}}
+	{{if i!=0:}}
+		<tr><td></td>
+	{{pass}}
+	{{i+=1}}
+	{{query = db(db.region.id==region).select()}}
+	<td>{{=query[0].region_name}}</td></tr>
+{{pass}}
 
 <tr><td></td><td></td></tr>
 

@@ -12,6 +12,7 @@ Created on 08/12/2013
 #########################################################################
 
 import math
+from gluon.debug import dbg
 
 def show_operators():
     """
@@ -90,6 +91,7 @@ def callback_operator():
     """An AJAX callback function that returns a list of links to operators"""
     query = db.operator.name.contains(request.vars.keyword)
     operators = db(query).select(orderby=db.operator.name)
+    dbg.set_trace() # Stop here!
     links = [DIV(A(op.name, _href=URL('show_operator', args=op.id))) for op in operators]
     return SPAN(*links)
 
@@ -199,16 +201,19 @@ def modify_service():
 def search_service():
     """An AJAX to search this operator services by name"""
     this_operator = db.operator(request.args(0,cast=int)) or redirect(URL('show_operators'))
-    form = FORM(INPUT(_id='keyword', _name='keyword', _onkeyup="ajax('callback_service', ['keyword'], 'target2');"))
-    return dict(form=form, target_div=DIV(_id='target2'), operator=this_operator)
+    form = FORM(INPUT(_id='keyword', _name='keyword', _onkeyup="ajax('callback_service', ['keyword'], 'target');"))
+    return dict(form=form, target_div=DIV(_id='target'), operator=this_operator)
 
 def callback_service():
-    """An AJAX callback function that returns a <ul> of links to this operator services"""
+    """An AJAX callback function that returns a list of links to this operator services"""
+    dbg.set_trace() # Stop here!
     query = db.service.name.contains(request.vars.keyword)
+    dbg.set_trace() # Stop here!
     #services = db(query.operator_id==request.vars.this_operator.id).select(orderby=db.service.name)
     services = db(query).select(orderby=db.service.name)
-    links = [A(serv.name, _href=URL('show_service', args=serv.id)) for serv in services]
-    return UL(*links)
+    dbg.set_trace() # Stop here!
+    links = [DIV(A(serv.name, _href=URL('show_service', args=serv.id))) for serv in services]
+    return SPAN(*links)
 
 ###########################################################################################
 def delete_comment():

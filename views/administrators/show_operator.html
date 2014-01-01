@@ -5,11 +5,15 @@
 {{=A(SPAN(T('Update/delete operator'), _class='buttontext button', _title='Update/delete operator'), _class='button btn', _href=URL('modify_operator', args=operator.id))}}
  
 <h1>{{=operator.name}}</h1>
+
 <table>
 	<tr><td><b>{{=T('Address: ')}}</b></td><td>{{=operator.address}}</td></tr>
 	<tr><td><b></b></td><td>{{=operator.postal_code}}</td></tr>
 	<tr><td><b></b></td><td>{{=operator.town}}</td></tr>
-	<tr><td><b></b></td><td>{{=operator.country}}</td></tr>
+	{{for country in operator.country:}}
+		{{query = db(db.country.id==country).select()}}
+	<tr><td><b></b></td><td>{{=query[0].country_name}}</td></tr>
+	{{pass}}
 
 	<tr><td><b>{{=T('E-mail: ')}}</b></td><td>{{=operator.email}}</td></tr>
 	<tr><td><b>{{=T('Website: ')}}</b></td><td>{{=operator.website}}</td></tr>
@@ -25,7 +29,8 @@
 		{{else:}}
 			<tr><td><b></b></td><td>
 		{{pass}}
-		{{=segment}}</td></tr>
+		{{query = db(db.tourism_segment.id==segment).select()}}
+		{{=query[0].segment_name}}</td></tr>
 	{{pass}}
 	<tr><td><b>{{=T('Regions: ')}}</b></td>
 	{{i=0}}
@@ -36,7 +41,8 @@
 		{{else:}}
 			<tr><td><b></b></td><td>
 		{{pass}}
-		{{=region}}</td></tr> 
+		{{query = db(db.region.id==region).select()}}
+		{{=query[0].region_name}}</td></tr> 
 {{pass}}
 </table>
 <br />

@@ -9,6 +9,7 @@ from gluon.tools import *
 #auth.define_tables()
 #crud = Crud(db)
 
+
 #------------------------------------------------------------
 # Table that defines a touristic operator
 # - GPS coordinates of the building, operator code, NIF and
@@ -24,12 +25,12 @@ db.define_table('operator',
     Field('address'),
     Field('postal_code'),
     Field('town'),
-    Field('country', 'string'),
+    Field('country', 'list:reference db.country'),
     Field('email'),
     Field('website'),
     Field('gpscoord', unique=True),
-    Field('tourism_segments', 'list:string'),
-    Field('regions', 'list:string'),
+    Field('tourism_segments', 'list:reference db.tourism_segment'),
+    Field('regions', 'list:reference db.region'),
     format='%(name)s')
 
 db.operator.id.writable = False
@@ -37,28 +38,31 @@ db.operator.name.requires = IS_NOT_IN_DB(db, 'operator.name')
 db.operator.code.requires = IS_NOT_IN_DB(db, 'operator.code')
 db.operator.nif.requires  = IS_NOT_IN_DB(db, 'operator.nif')
 db.operator.nib.requires  = IS_NOT_IN_DB(db, 'operator.nib')
+db.operator.country.requires = IS_IN_DB(db, 'country.id', '%(country_name)s')
 db.operator.email.requires = IS_EMAIL()
-db.operator.country.requires = IS_IN_SET(('Portugal', 'Spain'))
-db.operator.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
-                                                   'City Break',
-                                                   'Nature',
-                                                   'Nautical',
-                                                   'Golf',
-                                                   'Gastronomy and Whine',
-                                                   'Integrated Resorts',
-                                                   'Residential',
-                                                   'Health and Wellbeing',
-                                                   'Sun and Sea',
-                                                   'Business',
-                                                   'Religious'), multiple=True)
-db.operator.regions.requires = IS_IN_SET(('Algarve',
-                                          'Alentejo',
-                                          'Madeira',
-                                          'Azores',
-                                          'Lisboa',
-                                          'Porto',
-                                          'Center',
-                                          'North'), multiple=True)
+#db.operator.country.requires = IS_IN_SET(('Portugal', 'Spain'))
+#db.operator.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
+#                                                   'City Break',
+#                                                   'Nature',
+#                                                   'Nautical',
+#                                                   'Golf',
+#                                                   'Gastronomy and Whine',
+#                                                   'Integrated Resorts',
+#                                                   'Residential',
+#                                                   'Health and Wellbeing',
+#                                                   'Sun and Sea',
+#                                                   'Business',
+#                                                   'Religious'), multiple=True)
+db.operator.tourism_segments.requires = IS_IN_DB(db, 'tourism_segment.id', '%(segment_name)s', multiple=True)
+db.operator.regions.requires = IS_IN_DB(db, 'region.id', '%(region_name)s', multiple=True)
+#db.operator.regions.requires = IS_IN_SET(('Algarve',
+#                                          'Alentejo',
+#                                          'Madeira',
+#                                          'Azores',
+#                                          'Lisboa',
+#                                          'Porto',
+#                                          'Center',
+#                                          'North'), multiple=True)
 
 #--------------------------------------------------------
 # People of contact for a given touristic operator
@@ -97,8 +101,10 @@ db.define_table('service',
     Field('mean_rating', 'double'),
     Field('gps_latitude', 'double'),
     Field('gps_longitude', 'double'),
-    Field('tourism_segments', 'list:string'),
-    Field('region', 'string'),
+    Field('tourism_segments', 'list:reference db.tourism_segment'),
+    Field('region', 'list:reference db.region'),
+    #Field('tourism_segments', 'list:string'),
+    #Field('region', 'string'),
     format='%(name)s')
    
 db.service.operator_id.requires = IS_IN_DB(db, db.operator.id)
@@ -111,26 +117,28 @@ db.service.comission.readable = db.service.comission.writable = False
 db.service.mean_rating.requires = IS_FLOAT_IN_RANGE(0.00, 5.00)
 db.service.mean_rating.readable = db.service.mean_rating.writable = False
 #db.service.gpscoord.requires = IS_NOT_IN_DB(db, db.service.gpscoord)
-db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
-                                                  'City Break',
-                                                  'Nature',
-                                                  'Nautical',
-                                                  'Golf',
-                                                  'Gastronomy and Whine',
-                                                  'Integrated Resorts',
-                                                  'Residential',
-                                                  'Health and Wellbeing',
-                                                  'Sun and Sea',
-                                                  'Business',
-                                                  'Religious'))
-db.service.region.requires = IS_IN_SET(('Algarve',
-                                        'Alentejo',
-                                        'Madeira',
-                                        'Azores',
-                                        'Lisbon',
-                                        'Oporto',
-                                        'Center',
-                                        'North'))
+#db.service.tourism_segments.requires = IS_IN_SET(('Cultural and Landscape',
+#                                                  'City Break',
+#                                                  'Nature',
+#                                                  'Nautical',
+#                                                  'Golf',
+#                                                  'Gastronomy and Whine',
+#                                                  'Integrated Resorts',
+#                                                  'Residential',
+#                                                  'Health and Wellbeing',
+#                                                  'Sun and Sea',
+#                                                  'Business',
+#                                                  'Religious'))
+db.service.tourism_segments.requires = IS_IN_DB(db, 'tourism_segment.id', '%(segment_name)s', multiple=True)
+db.service.region.requires = IS_IN_DB(db, 'region.id', '%(region_name)s', multiple=False)
+#db.service.region.requires = IS_IN_SET(('Algarve',
+#                                        'Alentejo',
+#                                        'Madeira',
+#                                        'Azores',
+#                                        'Lisbon',
+#                                        'Oporto',
+#                                        'Center',
+#                                        'North'))
 db.service.operator_id.writable = db.service.operator_id.readable = False   
 
 #-------------------------------------------------------------
@@ -174,3 +182,6 @@ db.define_table('cust_comment',
 db.cust_comment.rating.requires = IS_IN_SET((1,2,3,4,5))
 db.cust_comment.service_id.requires = IS_IN_DB(db, db.service.id)
 db.cust_comment.service_id.writable = db.cust_comment.service_id.readable = False
+
+
+
