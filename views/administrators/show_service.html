@@ -1,0 +1,95 @@
+{{extend 'layout.html'}}
+ 
+{{=A(SPAN(T('Show all operators'), _class='buttontext button', _title='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
+{{=A(SPAN(T('View this operator'), _class='buttontext button', _title='View this operator'), _class='button btn', _href=URL('show_operator', args=service.operator_id))}}
+<br /><br />
+{{=A(SPAN(T('Modify/Delete this service'), _class='buttontext button', _title='Modify/Delete this service'), _class='button btn', _href=URL('modify_service', args=service.id))}}
+ 
+<h1>{{=service.name}}</h1>
+{{for photo in photos:}}
+	<a href="{{=URL('show_photo', args=photo.id)}}">
+	<img height="100" width="100" src="{{=URL('download_photo', args=photo.file)}}" alt="{{=URL('download_photo', args=photo.title)}}" title="{{=URL('download_photo', args=photo.title)}}" border="4" />
+	</a>
+{{pass}}<br /><br />
+
+{{=A(SPAN(T('Upload photo'), _class='buttontext button', _title='Upload photo'), _class='button btn', _href=URL('upload_photo', args=service.id))}}
+{{=A(SPAN(T('Show and edit all photos'), _class='buttontext button', _title='View and edit all photos'), _class='button btn', _href=URL('show_photos', args=service.id))}}
+
+<br />
+<table>
+<tr><td><b>{{=T('Service code :      ')}}</b></td><td>{{=service.code}}</td></tr>
+<tr><td><b>{{=T('Selling price :     ')}}</b></td><td>{{=service.selling_price}}</td></tr>
+<tr><td><b>{{=T('Operator price :    ')}}</b></td><td>{{=service.operator_price}}</td></tr>
+<tr><td><b>{{=T('Commission :        ')}}</b></td><td>{{=service.comission}}</td></tr>
+
+<tr><td><b>{{=T('Mean rating :       ')}}</b></td><td>{{=service.mean_rating}}</td></tr>
+<tr><td><b>{{=T('GPS coordinates :   ')}}</b></td><td></td></tr>
+<tr><td><b>{{=T('    Latitude  -->   ')}}</b></td><td>{{=service.gps_latitude}}</td></tr>
+<tr><td><b>{{=T('    Longitude -->   ')}}</b></td><td>{{=service.gps_longitude}}</td></tr>
+
+<tr><td><b>{{=T('Segments :          ')}}</b></td>
+{{i=0}}
+{{for segment in service.tourism_segments:}}
+	{{if i!=0:}}
+		<tr><td></td>
+	{{pass}}
+	{{i+=1}}
+	{{query = db(db.tourism_segment.id==segment).select()}}
+	<td>{{=query[0].segment_name}}</td></tr>
+{{pass}}
+
+<tr><td><b>{{=T('Region : 		   ')}}</b></td>
+{{i=0}}
+{{for region in service.region:}}
+	{{if i!=0:}}
+		<tr><td></td>
+	{{pass}}
+	{{i+=1}}
+	{{query = db(db.region.id==region).select()}}
+	<td>{{=query[0].region_name}}</td></tr>
+{{pass}}
+
+<tr><td></td><td></td></tr>
+
+<tr><td><b>{{=T('Opening time :      ')}}</b></td><td>{{=service.opening_time}}</td></tr>
+<tr><td><b>{{=T('Closing time :      ')}}</b></td><td>{{=service.closing_time}}</td></tr>
+<tr><td><b>{{=T('Service duration :  ')}}</b></td><td>{{=service.duration}}</td></tr>
+</table><br />
+
+{{=A(SPAN(T('Create service extension'), _class='buttontext button', _title='Create service extension'), _class='button btn', _href=URL('create_service_extension', args=service.id))}}
+
+{{if extensions:}}
+	{{for extension in extensions:}}
+		<table>
+			<tr><td>{{=H4(extension.name)}}</td>
+			<td>
+			{{=A(SPAN(T('Modify/Delete'), _class='buttontext button', _title='Modify or delete a service extension'), _class='button btn', _href=URL('modify_service_extension', args=extension.id))}}
+			</td></tr>
+		</table>
+		<table>
+		<tr><td><b>{{=T('Selling price :   ')}}</b></td><td>{{=extension.selling_price}}</td></tr>
+		<tr><td><b>{{=T('Operator price :  ')}}</b></td><td>{{=extension.operator_price}}</td></tr>
+		<tr><td><b>{{=T('Commission :      ')}}</b></td><td>{{=extension.comission}}</td></tr>
+		</table>
+	{{pass}}
+{{else:}}
+	<h3>{{=T('No extensions available')}}</h3>
+{{pass}}<br />
+
+{{if comments:}}
+	<h3>{{=T('Comments for this service')}}</h3>
+	<table>
+	<tr><td><h4>{{=T('Comment   ')}}</h4></td><td><h4>{{=T('Rating    ')}}</h4></td><td></td></tr>
+	{{for comment in comments:}}
+		<tr><td>{{=comment.comment}}</td>
+		<td>{{=comment.rating}}</td>
+		<td>
+		{{=A(SPAN(T('Delete'), _class='buttontext button', _title='Delete comment'), _class='button btn', _href=URL('delete_comment', args=comment.id))}}
+		</td></tr>
+	{{pass}}</table><br />
+	<h4>{{=T('Insert a comment')}}</h4>
+{{else:}}
+	<h3>{{=T('No comments for this service')}}</h3>
+	<b>{{=T('Be the first to comment')}}</b>
+{{pass}}
+{{=form}}

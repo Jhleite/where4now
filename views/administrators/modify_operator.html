@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+
+{{=A(SPAN(T('Show all operators'), _class='buttontext button', _title='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
+{{=A(SPAN(T('View this operator'), _class='buttontext button', _title='View this operator'), _class='button btn', _href=URL('show_operator', args=operator.id))}}
+
+<h1>{{=T('Modify operator data')}}</h1>
+{{=form}}

@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+ 
+{{=A(SPAN(T('Show all operators'), _class='buttontext button', _title='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
+{{=A(SPAN(T('Show this operator'), _class='buttontext button', _title='Show this operator'), _class='button btn', _href=URL('show_operator', args=contact.operator_id))}}
+ 
+<h1>{{=contact.name+' '+contact.surname}}</h1>
+<table>
+	{{if contact.professional_position:}}
+		<tr><td><b>{{=T('Position : ')}}</b></td><td>{{=contact.professional_position}}</td></tr>
+	{{pass}}
+	{{if contact.phone:}}
+		<tr><td><b>{{=T('Phone :    ')}}</b></td><td>{{=contact.phone}}</td></tr>
+	{{pass}}
+	{{if contact.mobile:}}
+		<tr><td><b>{{=T('Mobile :   ')}}</b></td><td>{{=contact.mobile}}</td></tr>
+	{{pass}}
+	{{if contact.fax:}}
+		<tr><td><b>{{=T('Fax :      ')}}</b></td><td>{{=contact.fax}}</td></tr>
+	{{pass}}
+	<tr><td><b>{{=T('E-mail :   ')}}</b></td><td>{{=contact.email}}</td></tr>
+	{{if contact.observations:}}
+		<tr><td><b>{{=T('Observations : ')}}</b></td><td>{{=contact.observations}}</td></tr>
+	{{else:}}
+		<tr><td><b>{{=T('Observations : ')}}</b></td><td>No observations entered for this contact.</td></tr>
+	{{pass}}
+</table>

@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+
+{{=A(SPAN(T('Operator services'), _class='buttontext button', _title='Show all operator services'), _class='button btn', _href=URL('show_services', args=operator.id))}}
+
+<h1>{{=T('Search Operator\'s Tourism Services')}}</h1>
+
+{{=form}}
+<br />
+{{=target_div}}

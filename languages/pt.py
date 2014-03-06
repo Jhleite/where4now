@@ -1,5 +1,10 @@
 # coding: utf8
 {
+<<<<<<< HEAD
+=======
+'    Latitude  -->   ': '    Latitude  -->   ',
+'    Longitude -->   ': '    Longitude -->   ',
+>>>>>>> origin/where4now_hugo
 '!langcode!': 'pt',
 '!langname!': 'Português',
 '"update" is an optional expression like "field1=\'newvalue\'". You cannot update or delete the results of a JOIN': '"update" é uma expressão opcional como "field1=\'newvalue\'". Não pode actualizar ou eliminar os resultados de um JOIN',
@@ -10,6 +15,10 @@
 '%Y-%m-%d %H:%M:%S': '%Y-%m-%d %H:%M:%S',
 'About': 'About',
 'Access Control': 'Access Control',
+<<<<<<< HEAD
+=======
+'Address: ': 'Address: ',
+>>>>>>> origin/where4now_hugo
 'Administrative Interface': 'Administrative Interface',
 'Administrative interface': 'Painel administrativo',
 'Ajax Recipes': 'Ajax Recipes',
@@ -19,6 +28,12 @@
 'Author Reference Auth User': 'Author Reference Auth User',
 'Author Reference Auth User.username': 'Author Reference Auth User.username',
 'Available Databases and Tables': 'bases de dados e tabelas disponíveis',
+<<<<<<< HEAD
+=======
+'Available Operators': 'Available Operators',
+'Available Services': 'Available Services',
+'Be the first to comment': 'Be the first to comment',
+>>>>>>> origin/where4now_hugo
 'Buy this book': 'Buy this book',
 'cache': 'cache',
 'Cache': 'Cache',
@@ -32,16 +47,41 @@
 'Clear DISK': 'Clear DISK',
 'Clear RAM': 'Clear RAM',
 'Client IP': 'Client IP',
+<<<<<<< HEAD
 'Comment Create': 'Comment Create',
 'Comment Select': 'Comment Select',
+=======
+'Closing time :      ': 'Closing time :      ',
+'Comment   ': 'Comment   ',
+'Comment Create': 'Comment Create',
+'Comment Select': 'Comment Select',
+'Comments for this service': 'Comments for this service',
+'Commission :      ': 'Commission :      ',
+'Commission :        ': 'Commission :        ',
+>>>>>>> origin/where4now_hugo
 'Community': 'Community',
 'Components and Plugins': 'Components and Plugins',
 'Content': 'Content',
 'Controller': 'Controlador',
 'Copyright': 'Direitos de cópia',
+<<<<<<< HEAD
 'create new category': 'create new category',
 'create new comment': 'create new comment',
 'create new post': 'create new post',
+=======
+'Create a new photo for': 'Create a new photo for',
+'Create a new service extension for': 'Create a new service extension for',
+'Create a new service for': 'Create a new service for',
+'Create a new Tourism operator': 'Create a new Tourism operator',
+'create new category': 'create new category',
+'create new comment': 'create new comment',
+'Create new contact': 'Create new contact',
+'Create new operator': 'Create new operator',
+'Create new operator service': 'Create new operator service',
+'create new post': 'create new post',
+'Create new service': 'Create new service',
+'Create service extension': 'Create service extension',
+>>>>>>> origin/where4now_hugo
 'Created By': 'Created By',
 'Created On': 'Created On',
 'Current request': 'pedido currente',
@@ -53,6 +93,10 @@
 'Database %s select': 'selecção de base de dados %s',
 'db': 'bd',
 'DB Model': 'Modelo de BD',
+<<<<<<< HEAD
+=======
+'Delete': 'Delete',
+>>>>>>> origin/where4now_hugo
 'Delete:': 'Eliminar:',
 'Demo': 'Demo',
 'Deployment Recipes': 'Deployment Recipes',
@@ -66,6 +110,11 @@
 'done!': 'concluído!',
 'Download': 'Download',
 'E-mail': 'E-mail',
+<<<<<<< HEAD
+=======
+'E-mail :   ': 'E-mail :   ',
+'E-mail: ': 'E-mail: ',
+>>>>>>> origin/where4now_hugo
 'Edit': 'Editar',
 'edit category': 'edit category',
 'edit comment': 'edit comment',
@@ -83,12 +132,20 @@
 'Errors in form, please check it out.': 'Errors in form, please check it out.',
 'export as csv file': 'exportar como ficheiro csv',
 'FAQ': 'FAQ',
+<<<<<<< HEAD
+=======
+'Fax :      ': 'Fax :      ',
+>>>>>>> origin/where4now_hugo
 'First name': 'First name',
 'First Name': 'First Name',
 'For %s #%s': 'For %s #%s',
 'Forgot username?': 'Forgot username?',
 'Forms and Validators': 'Forms and Validators',
 'Free Applications': 'Free Applications',
+<<<<<<< HEAD
+=======
+'GPS coordinates :   ': 'GPS coordinates :   ',
+>>>>>>> origin/where4now_hugo
 'Graph Model': 'Graph Model',
 'Group ID': 'Group ID',
 'Groups': 'Groups',
@@ -98,6 +155,10 @@
 'import': 'import',
 'Import/Export': 'Importar/Exportar',
 'Index': 'Índice',
+<<<<<<< HEAD
+=======
+'Insert a comment': 'Insert a comment',
+>>>>>>> origin/where4now_hugo
 'insert new': 'inserir novo',
 'insert new %s': 'inserir novo %s',
 'Internal State': 'Estado interno',
@@ -120,6 +181,7 @@
 'Lost password?': 'Lost password?',
 'Main Menu': 'Menu Principal',
 'Manage Cache': 'Manage Cache',
+<<<<<<< HEAD
 'Menu Model': 'Menu do Modelo',
 'Modified By': 'Modified By',
 'Modified On': 'Modified On',
@@ -132,13 +194,56 @@
 'No databases in this application': 'Não há bases de dados nesta aplicação',
 'Object or table name': 'Object or table name',
 'Online examples': 'Exemplos online',
+=======
+'Mean rating :       ': 'Mean rating :       ',
+'Menu Model': 'Menu do Modelo',
+'Mobile :   ': 'Mobile :   ',
+'Modified By': 'Modified By',
+'Modified On': 'Modified On',
+'Modify operator data': 'Modify operator data',
+'Modify or Delete photo': 'Modify or Delete photo',
+'Modify/Delete': 'Modify/Delete',
+'Modify/Delete photo': 'Modify/Delete photo',
+'Modify/Delete service data': 'Modify/Delete service data',
+'Modify/Delete this service': 'Modify/Delete this service',
+'My Sites': 'My Sites',
+'Name': 'Name',
+'New operator': 'New operator',
+'New Record': 'Novo Registo',
+'new record inserted': 'novo registo inserido',
+'next 100 rows': 'próximas 100 linhas',
+'No Available Services': 'No Available Services',
+'No comments for this service': 'No comments for this service',
+'No contacts created for this Operator': 'No contacts created for this Operator',
+'No Data': 'No Data',
+'No databases in this application': 'Não há bases de dados nesta aplicação',
+'No extensions available': 'No extensions available',
+'Object or table name': 'Object or table name',
+'Observations : ': 'Observations : ',
+'Online examples': 'Exemplos online',
+'Opening time :      ': 'Opening time :      ',
+'Operator code: ': 'Operator code: ',
+'Operator contains services. Delete them first.': 'Operator contains services. Delete them first.',
+'Operator deleted': 'Operator deleted',
+'Operator NIB: ': 'Operator NIB: ',
+'Operator NIF: ': 'Operator NIF: ',
+'Operator price :  ': 'Operator price :  ',
+'Operator price :    ': 'Operator price :    ',
+'Operator services': 'Operator services',
+>>>>>>> origin/where4now_hugo
 'or import from csv file': 'ou importe a partir de ficheiro csv',
 'Origin': 'Origin',
 'Other Plugins': 'Other Plugins',
 'Other Recipes': 'Other Recipes',
 'Overview': 'Overview',
 'Password': 'Password',
+<<<<<<< HEAD
 'Plugins': 'Plugins',
+=======
+'Phone :    ': 'Phone :    ',
+'Plugins': 'Plugins',
+'Position : ': 'Position : ',
+>>>>>>> origin/where4now_hugo
 'Post Create': 'Post Create',
 'Post Select': 'Post Select',
 'Powered by': 'Suportado por',
@@ -151,11 +256,21 @@
 'RAM': 'RAM',
 'RAM Cache Keys': 'RAM Cache Keys',
 'Ram Cleared': 'Ram Cleared',
+<<<<<<< HEAD
+=======
+'Rating    ': 'Rating    ',
+>>>>>>> origin/where4now_hugo
 'Recipes': 'Recipes',
 'Record': 'registo',
 'record does not exist': 'registo inexistente',
 'Record ID': 'Record ID',
 'Record id': 'id de registo',
+<<<<<<< HEAD
+=======
+'record updated': 'record updated',
+'Region : \t\t   ': 'Region : \t\t   ',
+'Regions: ': 'Regions: ',
+>>>>>>> origin/where4now_hugo
 'Register': 'Register',
 'register': 'register',
 'Registration identifier': 'Registration identifier',
@@ -168,6 +283,7 @@
 'Rows selected': 'Linhas seleccionadas',
 'search category': 'search category',
 'search comment': 'search comment',
+<<<<<<< HEAD
 'search post': 'search post',
 'select category': 'select category',
 'select comment': 'select comment',
@@ -177,6 +293,34 @@
 'show category': 'show category',
 'show comment': 'show comment',
 'show post': 'show post',
+=======
+'Search operator': 'Search operator',
+"Search Operator' Tourism Services": "Search Operator' Tourism Services",
+"Search Operator's Tourism Services": "Search Operator's Tourism Services",
+'search post': 'search post',
+'Search service': 'Search service',
+'Search Tourism Operators': 'Search Tourism Operators',
+'Search Tourism Services': 'Search Tourism Services',
+'Segments :          ': 'Segments :          ',
+'Segments: ': 'Segments: ',
+'select category': 'select category',
+'select comment': 'select comment',
+'select post': 'select post',
+'Selling price :   ': 'Selling price :   ',
+'Selling price :     ': 'Selling price :     ',
+'Semantic': 'Semantic',
+'Service code :      ': 'Service code :      ',
+'Service duration :  ': 'Service duration :  ',
+'Services': 'Services',
+'Show all operator services': 'Show all operator services',
+'Show all operators': 'Show all operators',
+'Show and edit all photos': 'Show and edit all photos',
+'show category': 'show category',
+'show comment': 'show comment',
+'show post': 'show post',
+'Show this operator': 'Show this operator',
+'Show this service': 'Show this service',
+>>>>>>> origin/where4now_hugo
 'Size of cache:': 'Size of cache:',
 'state': 'estado',
 'Statistics': 'Statistics',
@@ -195,16 +339,36 @@
 'Time in Cache (h:m:s)': 'Time in Cache (h:m:s)',
 'Timestamp': 'Timestamp',
 'Title': 'Title',
+<<<<<<< HEAD
 'Twitter': 'Twitter',
 'unable to parse csv file': 'não foi possível carregar ficheiro csv',
 'Update:': 'Actualização:',
+=======
+'Traceback': 'Traceback',
+'Twitter': 'Twitter',
+'unable to parse csv file': 'não foi possível carregar ficheiro csv',
+'Update/delete operator': 'Update/delete operator',
+'Update:': 'Actualização:',
+'Upload photo': 'Upload photo',
+>>>>>>> origin/where4now_hugo
 'Use (...)&(...) for AND, (...)|(...) for OR, and ~(...)  for NOT to build more complex queries.': 'Utilize (...)&(...) para AND, (...)|(...) para OR, e ~(...)  para NOT para construir interrogações mais complexas.',
 'User ID': 'User ID',
 'Username': 'Username',
 'value already in database or empty': 'value already in database or empty',
 'value not allowed': 'value not allowed',
+<<<<<<< HEAD
 'Videos': 'Videos',
 'View': 'Vista',
+=======
+'value not in database': 'value not in database',
+'Videos': 'Videos',
+'View': 'Vista',
+'View details': 'View details',
+'View this operator': 'View this operator',
+'View this photo': 'View this photo',
+'View this service': 'View this service',
+'Website: ': 'Website: ',
+>>>>>>> origin/where4now_hugo
 'Welcome': 'Welcome',
 'Welcome %s': 'Bem-vindo(a) %s',
 'Welcome to Gluonization': 'Bem vindo ao Web2py',

@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+ 
+{{=A(SPAN(T('View this service'), _class='buttontext button', _title='View this service'), _class='button btn', _href=URL('show_service', args=photo.service_id))}}
+<br /><br />
+
+<a href="{{=URL('show_photo', args=photo.id)}}">
+	<img width="400px" height="100px" src="{{=URL('download_photo', args=photo.file)}}" />
+</a>
+
+{{=A(SPAN(T('Modify/Delete photo'), _class='buttontext button', _title='Modify or Delete the photo'), _class='button btn', _href=URL('modify_photo', args=photo.id))}}

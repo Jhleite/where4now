@@ -1,0 +1,73 @@
+{{extend 'layout.html'}}
+ 
+{{=A(SPAN(T('Show all operators'), _class='buttontext button', _title='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
+{{=A(SPAN(T('Create new operator'), _class='buttontext button', _title='Create new operator'), _class='button btn', _href=URL('create_operator'))}}
+{{=A(SPAN(T('Update/delete operator'), _class='buttontext button', _title='Update/delete operator'), _class='button btn', _href=URL('modify_operator', args=operator.id))}}
+ 
+<h1>{{=operator.name}}</h1>
+
+<table>
+	<tr><td><b>{{=T('Address: ')}}</b></td><td>{{=operator.address}}</td></tr>
+	<tr><td><b></b></td><td>{{=operator.postal_code}}</td></tr>
+	<tr><td><b></b></td><td>{{=operator.town}}</td></tr>
+	{{for country in operator.country:}}
+		{{query = db(db.country.id==country).select()}}
+	<tr><td><b></b></td><td>{{=query[0].country_name}}</td></tr>
+	{{pass}}
+
+	<tr><td><b>{{=T('E-mail: ')}}</b></td><td>{{=operator.email}}</td></tr>
+	<tr><td><b>{{=T('Website: ')}}</b></td><td>{{=operator.website}}</td></tr>
+	<tr><td><b>{{=T('Operator code: ')}}</b></td><td>{{=operator.code}}</td></tr>
+	<tr><td><b>{{=T('Operator NIF: ')}}</b></td><td>{{=operator.nif}}</td></tr>
+	<tr><td><b>{{=T('Operator NIB: ')}}</b></td><td>{{=operator.nib}}</td></tr>
+	<tr><td><b>{{=T('Segments: ')}}</b></td>
+	{{i=0}}
+	{{for segment in operator.tourism_segments:}}
+		{{i=i+1}}
+		{{if i == 1:}}
+			<td>
+		{{else:}}
+			<tr><td><b></b></td><td>
+		{{pass}}
+		{{query = db(db.tourism_segment.id==segment).select()}}
+		{{=query[0].segment_name}}</td></tr>
+	{{pass}}
+	<tr><td><b>{{=T('Regions: ')}}</b></td>
+	{{i=0}}
+	{{for region in operator.regions:}}
+		{{i=i+1}}
+		{{if i == 1:}}
+			<td>
+		{{else:}}
+			<tr><td><b></b></td><td>
+		{{pass}}
+		{{query = db(db.region.id==region).select()}}
+		{{=query[0].region_name}}</td></tr> 
+{{pass}}
+</table>
+<br />
+
+{{=A(SPAN(T('Show all operator services'), _class='buttontext button', _title='Show all operator services'), _class='button btn', _href=URL('show_services', args=operator.id))}}
+{{=A(SPAN(T('Create new operator service'), _class='buttontext button', _title='Create new operator service'), _class='button btn', _href=URL('create_service', args=operator.id))}}
+
+{{if contacts:}}
+	{{=H2('Contacts for this Operator')}}
+	
+	{{=A(SPAN(T('Create new contact'), _class='buttontext button', _title='Create new contact'), _class='button btn', _href=URL('create_contact', args=operator.id))}}
+	
+	<table>
+	{{for contact in contacts:}}
+		<tr><td>{{=B(contact.name + ' ' + contact.surname, _href=URL('show_contact', args=contact.id))}}</td>
+		<td>{{=contact.professional_position}}</td>
+		<td>
+		{{=A(SPAN(T('View details'), _class='buttontext button', _title='View details'), _class='button btn', _href=URL('show_contact', args=contact.id))}}
+		</td>
+		<td>
+		{{=A(SPAN(T('Modify/Delete'), _class='buttontext button', _title='Modify or Delete a contact'), _class='button btn', _href=URL('modify_contact', args=contact.id))}}
+		</td></tr>
+	{{pass}}</table>
+{{else:}}
+	{{=H4(T('No contacts created for this Operator'))}}
+{{pass}}<br />
+
+{{=A(SPAN(T('Create new contact'), _class='buttontext button', _title='Create new contact'), _class='button btn', _href=URL('create_contact', args=operator.id))}}

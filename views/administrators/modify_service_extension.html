@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+
+{{=A(SPAN(T('View this service'), _class='buttontext button', _title='View this service'), _class='button btn', _href=URL('show_service', args=service.id))}}
+
+<h1>{{=T('Modify or delete a service extension')}}</h1>
+{{=form}}

@@ -217,6 +217,10 @@ pip-log.txt
 #############
 ## Web2py
 #############
+<<<<<<< HEAD
+=======
+photo.file.*
+>>>>>>> origin/where4now_hugo
 databases_old/
 databases/
 *.table

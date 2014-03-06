@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+
+{{=A(SPAN(T('Show all operators'), _class='buttontext button', _title='Show all operators'), _class='button btn', _href=URL('show_operators'))}}
+{{=A(SPAN(T('View this operator'), _class='buttontext button', _title='View this operator'), _class='button btn', _href=URL('show_operator', args=operator.id))}}
+<br /><br />
+{{=A(SPAN(T('Create new service'), _class='buttontext button', _title='Create new service'), _class='button btn', _href=URL('create_service', args=operator.id))}}
+{{=A(SPAN(T('Search service'), _class='buttontext button', _title='Search for operator services'), _class='button btn', _href=URL('search_service', args=operator.id))}}
+<br />
+{{if services:}}
+	<h1>{{=T('Available Services')}}</h1>
+	<br />
+	<ul>{{for service in services:}}
+    	{{=DIV(A(service.name, _href=URL('show_service', args=service.id)))}}
+	{{pass}}</ul>
+{{else:}}
+	<h1>{{=T('No Available Services')}}</h1><br />
+{{pass}}
+{{=A(SPAN(T('Create new service'), _class='buttontext button', _title='Create new service'), _class='button btn', _href=URL('create_service', args=operator.id))}}
+
